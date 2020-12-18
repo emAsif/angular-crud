@@ -1,5 +1,98 @@
 @import '../../styles/variables.less';
 
-h2{
-  color:@gray-700;
+.wrapper {
+  background-color: @form-background-color;
+  width: 500px;
+  padding: 25px;
+  height: 270px;
+  // margin: auto;
+  border-top: 5px solid @primary-color;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.form-val-error {
+  color: @error-font-color;
+}
+.error-notify{
+  color: @error-font-color;
+  padding: 6px 4px;
+  border-radius: 1px;
+  background-color: @error-background-color;
+}
+
+.text-name.ng-touched.ng-invalid {
+  -webkit-box-shadow: 0 0 1px 1px @error-font-color;
+  -moz-box-shadow: 0 0 1px 1px @error-font-color;
+  box-shadow: 0 0 2px 1px @error-font-color;
+  border: 1px solid @error-font-color;
+}
+
+.wrapper h2 {
+  font-size: 24px;
+  line-height: 14px;
+  padding-bottom: 15px;
+  text-align: center;
+}
+
+.input-name {
+  width: 90%;
+  position: relative;
+  margin: 20px auto;
+}
+
+.text-name {
+  width: 100%;
+  padding: 8px 0 8px 0px;
+}
+
+.text-name,
+.name {
+  border: 1px solid @form-border;
+  outline: none;
+  -webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
+  transition: all 0.30s ease-in-out;
+}
+
+.text-name:hover,
+.name:hover {
+  background-color: #fafafa;
+}
+
+.text-name:focus,
+.name:focus {
+  -webkit-box-shadow: 0 0 2px 1px @primary-color;
+  -moz-box-shadow: 0 0 2px 1px @primary-color;
+  box-shadow: 0 0 2px 1px @primary-color;
+  border: 1px solid @primary-color;
+  background: @input-focus-background;
+}
+
+.button {
+  background: @primary-color;
+  height: 35px;
+  line-height: 35px;
+  width: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 18px;
+  margin-bottom: 10px;
+
+}
+
+.button:hover {
+  background-color: @primary-color-hover;
+}
+
+.button:hover {
+  background-color: @primary-color-hover;
 }

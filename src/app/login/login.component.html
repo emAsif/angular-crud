@@ -1,2 +1,30 @@
-<h2>other color that is white</h2>
-
+<!--start log in form -->
+<div class="wrapper">
+    <h2>Akelius code challange</h2>
+    <div class="form-conteniar">
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="input-name">
+                <input type="email" formControlName="username" placeholder="username" class="text-name">
+                <div *ngIf="username.touched && username.invalid" class="form-val-error">
+                    <div *ngIf="username.errors.required">Username is required</div>
+                    <div *ngIf="username.errors.cannotContainSpace">Username cannot contain space</div>
+                    <div *ngIf="username.hasError('minlength')">Username should be atleast {{username.errors.minlength.requiredLength}} characters.</div>
+                    <div *ngIf="username.hasError('maxlenght')">Username cannot be more than {{username.errors.minlength.requiredLength}} charaters.</div>
+                </div>
+            </div>
+            <div class="input-name">
+                <input type="password" formControlName="password" placeholder="Password" class="text-name">
+                <div *ngIf="password.touched && password.invalid" class="form-val-error">
+                    <div *ngIf="password.errors.required">Password is required</div>
+                    <!-- <div *ngIf="password.hasError('minlength')">Password is too short</div>
+                    <div *ngIf="password.hasError('maxlenght')">Password is required</div> -->
+                </div>
+            </div>
+            <div class="input-name">
+                <input class="button" type="submit" value="Login" />
+                <div *ngIf="error" class="error-notify">{{error}}</div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--end log in form -->

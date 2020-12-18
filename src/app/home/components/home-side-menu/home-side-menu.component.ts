@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home-side-menu',
+  selector: 'home-side-menu',
   templateUrl: './home-side-menu.component.html',
   styleUrls: ['./home-side-menu.component.less']
 })

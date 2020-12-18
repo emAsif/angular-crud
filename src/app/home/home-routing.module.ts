@@ -9,13 +9,13 @@ const routes: Routes = [{
     children: [
       {
         path: 'start',
-        // canActivate: [auth.AuthGuard],
+        canActivate: [auth.AuthGuard],
         loadChildren: () => import('./start/start.module')
         .then(m => m.StartModule)
       },
       { 
         path: 'user', 
-        // canActivate: [auth.AuthGuard],
+        canActivate: [auth.AuthGuard],
         loadChildren: () => import('./user/user.module')
         .then(m => m.UserModule) }
     ]
