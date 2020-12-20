@@ -1,1 +1,16 @@
-<p>home-header works!</p>
+<div class="header">
+    <div style="display: inline-block;">
+    <!-- Use any element to open the sidenav -->
+    <div *ngIf="!showCloseIcon">
+        <span class="close-icon" (click)="openNav()">&#9776;</span>
+    </div>
+    <!-- Use any element to close the sidenav -->
+    <div *ngIf="showCloseIcon" class="close">
+        <span class="close-icon" (click)="closeNav()">&#10006;</span>
+    </div>
+    </div>
+
+    <div class="header-right">
+        <p class="user-name">Asif Amin</p>
+    </div>
+</div>

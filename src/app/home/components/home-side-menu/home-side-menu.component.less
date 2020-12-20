@@ -1,0 +1,48 @@
+@import '../../../../styles/variables.less';
+
+nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: @primary-color;
+  overflow-x: hidden;
+  padding-top: 20px;
+  transition: 0.5s;
+
+  ul {
+    list-style: none;
+    line-height: 35px;
+  }
+
+  li {
+    display: block;
+  }
+
+  h3 {
+    color: @font-sideNav-color; 
+    text-align: center;
+    padding-bottom: 30px;
+  }
+
+  a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    // font-size: @font-size-sideNav;
+    color: @font-sideNav-color;
+    display: block;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: @color-secondary;
+      cursor: pointer;
+      color: @font-sid-color-secondary;
+    }
+
+    &:active {
+      background: @primary-color;
+    }
+  }
+}

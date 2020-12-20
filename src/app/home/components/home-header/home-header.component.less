@@ -1,0 +1,44 @@
+@import '../../../../styles/variables.less';
+
+.header {
+    overflow: hidden;
+    background-color: @header-background;
+    padding: 5px 2.5px;
+}
+
+.user-name {
+    float: left;
+    // color: black;
+    text-align: center;
+    padding: 12px 25px;
+    // text-decoration: none;
+    // font-size: @header-text-size;
+    line-height: 12px;
+    border: 1px dotted @primary-color;
+    // background-color: @color-secondary;
+    margin-right: 30px;
+}
+
+.close-icon {
+    color: @primary-color;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px;
+    line-height: 36px;
+}
+
+.header p:hover {
+    cursor: pointer;
+}
+
+.header-right {
+    float: right;
+}
+
+@media screen and (max-width: 420px) {
+    .user-name {
+        padding: 3px 6px;
+        line-height: 28px;
+    //   display: none;
+    }
+  }

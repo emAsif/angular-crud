@@ -1,1 +1,16 @@
-<p>home-side-menu works!</p>
+<!-- <div id="mySidenav" class="sidenav">
+    <h3>{{logoText}}</h3>
+    <div *ngFor="let i of items">
+        <div class="i-height">
+            <a>{{i.name}}</a>
+        </div>
+    </div>
+  </div> -->
+
+  <nav id="mySidenav">
+    <h3>{{logoText}}</h3>
+    <ul *ngFor="let i of items">
+      <li><a href="#" class="active">{{i.name}}</a></li> 
+    </ul>
+  
+  </nav>

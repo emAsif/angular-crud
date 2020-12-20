@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../core/services';
 import { UsernameValidators } from './username.validators';
+import { Config } from '../shared/config/app.config'
 
 @Component({
   selector: 'app-login',
@@ -12,44 +13,45 @@ import { UsernameValidators } from './username.validators';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  loginHeading = Config.message.loginText;
   loading = false;
   submitted = false;
   returnUrl: string;
   error = '';
-  
+
   constructor(
-        private formBuilder: FormBuilder,
-        private route: ActivatedRoute,
-        private router: Router,
-        private authenticationService: AuthenticationService
+    private formBuilder: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authenticationService: AuthenticationService
   ) {
     // redirect to home if already logged in
-    if (this.authenticationService.currentUserValue) { 
+    if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
+    }
   }
-   }
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      username: ['', 
-      [
-        Validators.required,
-        Validators.minLength(4),
-        Validators.maxLength(20),
-        UsernameValidators.cannotContainSpace
+      username: ['',
+        [
+          Validators.required,
+          // Validators.minLength(4),
+          // Validators.maxLength(20),
+          UsernameValidators.cannotContainSpace
+        ]
+      ],
+      password: ['',
+        [
+          Validators.required,
+          // Validators.minLength(4),
+          // Validators.maxLength(20)
+        ]
       ]
-    ],
-      password: ['', 
-      [
-        Validators.required,
-        // Validators.minLength(4),
-        // Validators.maxLength(20)
-      ]
-    ]
-  });
+    });
 
-  // get return url from route parameters or default to '/'
-  this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    // get return url from route parameters or default to '/'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
   // convenience getter for easy access to controls
@@ -57,25 +59,23 @@ export class LoginComponent implements OnInit {
   get password() { return this.loginForm.get('password'); }
 
   onSubmit() {
-    console.log(this.loginForm)
-      this.submitted = true;
+    this.submitted = true;
 
-      // stop here if form is invalid
-      if (this.loginForm.invalid) {
-          return;
-      }
-
-      this.loading = true;
-      this.authenticationService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
-          .pipe(first())
-          .subscribe(
-              data => {
-                  this.router.navigate([this.returnUrl]);
-              },
-              error => {
-                  this.error = error;
-                  this.loading = false;
-              });
+    // stop here if form is invalid
+    if (this.loginForm.invalid) {
+      return;
+    }
+    this.loading = true;
+    this.authenticationService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          this.router.navigate([this.returnUrl]);
+        },
+        error => {
+          this.error = error;
+          this.loading = false;
+        });
   }
 
 }
