@@ -1,6 +1,14 @@
-  <nav id="mySidenav">
-    <h4>{{logoText}}</h4>
-    <ul *ngFor="let i of items">
-      <li><a href="#" class="active">{{i.name}}</a></li> 
-    </ul>
-  </nav>
+<nav id="mySidenav">
+  <h4>{{logoText}}</h4>
+  <!-- <div class="closebtn">
+    <a href="javascript:void(0)"  onclick="closeNavHandler()">&times;</a>
+  </div> -->
+  <ul>
+    <li *ngFor="let item of items;">
+      <a [routerLink]="item.routerLink" routerLinkActive='active-item'>{{item.name}}</a>
+    </li>
+    <li>
+      <a routerLink="#" (click)="logout()">Logout</a>
+    </li>
+  </ul>
+</nav>

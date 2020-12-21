@@ -1,0 +1,48 @@
+@import '../../../../../styles/index.less';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    // background-color: @component-background;
+}
+
+.wrapper {
+    .form-container(@maxWidth: 500px, @height: 370px);
+    // margin: 50px auto 0;
+}
+
+.wrapper h4 {
+    .form-heading;
+}
+
+.input-name {
+    .form-field-div;
+}
+
+.name {
+    .field-size(@width: 45%);
+}
+
+.input-name span {
+    margin-left: 35px;
+}
+
+.text-name {
+    .field-size(@width: 100%);
+}
+
+.email {
+    padding: 8px;
+}
+
+.text-name,
+.name {
+    .form-field;
+}
+
+.button {
+    .form-btn;
+}
+
+.form-responsive(@maxWidth: @small-screen);

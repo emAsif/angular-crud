@@ -20,6 +20,10 @@ nav {
   li {
     display: block;
   }
+  .active-item {
+    background: @color-secondary;
+    color: @font-sid-color-secondary;
+  }
 
   h4 {
     color: @font-sideNav-color; 
@@ -40,9 +44,35 @@ nav {
       cursor: pointer;
       color: @font-sid-color-secondary;
     }
-
-    &:active {
-      background: @primary-color;
-    }
   }
 }
+
+// @media (max-width:@small-screen){
+
+
+//   #mySidenav{
+
+
+//       // width: 100%;
+//       // text-align: center;
+//       // right:100%;
+//       // background-color: #4c516d;
+//       // transition: all 0.5s;
+//   }
+// }
+  // .side-menu .Logout{
+
+  //     display: block;
+  // }
+
+
+  // nav .menu-bar{
+
+  //     display: block;
+  // }
+
+// #menu:checked ~ .side-menu{
+
+//   left:0;
+
+// }
