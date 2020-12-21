@@ -1,9 +1,9 @@
 <!-- side menu  -->
-<home-side-menu></home-side-menu>
+<home-side-menu (signOut)="logout()"></home-side-menu>
 
 <!-- Add all page content inside this div if you want the side nav to push page content to the right -->
 <div id="main">
-  <home-header></home-header>
+  <home-header [currentUser]="currentUser"></home-header>
 </div>
 <!-- BEGIN Page Content -->
 <router-outlet></router-outlet>

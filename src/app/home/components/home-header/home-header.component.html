@@ -1,21 +1,10 @@
 <div class="header">
-    <!-- <div style="display: inline-block;"> -->
-    <!-- Use any element to open the sidenav -->
-    <!-- <div *ngIf="!showCloseIcon"> -->
-        <!-- <span class="close-icon" (click)="openNav()">&#9776;</span> -->
-    <!-- </div> -->
-    <!-- Use any element to close the sidenav -->
-    <!-- <div *ngIf="showCloseIcon" class="close"> -->
-        <!-- <span class="close-icon" (click)="closeNav()">&#10006;</span> -->
-    <!-- </div> -->
-    <!-- </div> -->
-        <!-- open & close the sidenav -->
-        <div *ngIf="showCloseIcon; else elseBlock" class="align-h-items">
-            <span class="close-icon" (click)="closeNav()">&#10006;</span>
-        </div>
-        <ng-template #elseBlock><span class="close-icon" #open (click)="openNav()">&#9776;</span></ng-template>
+    <div *ngIf="showCloseIcon; else elseBlock" class="align-h-items">
+        <span class="close-icon" (click)="closeNav()">&#10006;</span>
+    </div>
+    <ng-template #elseBlock><span class="close-icon" #open (click)="openNav()">&#9776;</span></ng-template>
 
     <div class="header-right">
-        <p class="user-name">Asif Amin</p>
+        <p class="user-name">{{currentUser.username}}</p>
     </div>
 </div>
