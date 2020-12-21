@@ -1,13 +1,14 @@
 // base colors
 // @primary-color:    #2f8dff;
-@primary-color:    #3b5998;
+@primary-color: #3b5998;
 @color-secondary: #8b9dc3;
 @color-third: #dfe3ee;
-@color-fourth: #f7f7f7;
-@info-color      : #E6F7FF;
-@success-background-color   : #F6FFED;
+// @color-fourth: #f7f7f7;
+@color-fourth: whitesmoke;
+@info-color : #E6F7FF;
+@success-background-color : #F6FFED;
 @error-background-color: #FBEAEA;
-@error-font-color: red; 
+@error-font-color: red;
 
 // main body background color
 @body-background: #fff;
@@ -15,7 +16,7 @@
 // Base background color for most components
 @component-background: #fff;
 
-@border-color-base   : hsv(0, 0, 85%);
+@border-color-base : hsv(0, 0, 85%);
 
 // input 
 @input-hover-border-color: @primary-color;
@@ -24,6 +25,7 @@
 
 //form
 @form-border: #cccc;
+@form-padding: 25px;
 @input-focus-background: #fafafa;
 @form-background-color: whitesmoke;
 
@@ -34,49 +36,55 @@
 @font-sid-color-secondary: @component-background;
 
 //font 
+@base-font-size: 20px;
 @font-color: @color-third;
-@font-size: 20px;
+// @font-size: 20px;
 
 // header
 @header-background: @color-fourth;
 @header-text-size: @font-size-sideNav;
+
+/* typograhy Variables & media queries */
+@small-screen: 480px;
+@large-screen: 1600px;
+// @base-font-size:	20px;
 
 /******************* TYPOGRAPHY *******************/
 
 /* Variables & Mixins */
 
 /* Fonts & weights */
-@font-stack-main: "franklin-gothic-urw-cond", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-@font-weight-book: 400;
-@font-weight-medium: 500;
-@font-weight-demi: 700;
+// @font-stack-main: "franklin-gothic-urw-cond", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+// @font-weight-book: 400;
+// @font-weight-medium: 500;
+// @font-weight-demi: 700;
 
 /* Pixel translations */
-@font-size-14: 0.875em;
-@font-size-16: 1em;
-@font-size-18: 1.125em;
-@font-size-20: 1.250em;
-@font-size-22: 1.375em;
+// @font-size-14: 0.875em;
+// @font-size-16: 1em;
+// @font-size-18: 1.125em;
+// @font-size-20: 1.250em;
+// @font-size-22: 1.375em;
 
 /* Colors */
-@s2s_dark_grey: #3b3b3b;
-@s2s_medium_grey: #7e7e7e;
-@s2s_light_grey: #dadada;
-@s2s_sidebar_light_gray: #bfbfbf;
-@s2s_header_light_grey: #ededed;
-@s2s_orange: #f15a29;
-@s2s_blue: #227296;
+// @s2s_dark_grey: #3b3b3b;
+// @s2s_medium_grey: #7e7e7e;
+// @s2s_light_grey: #dadada;
+// @s2s_sidebar_light_gray: #bfbfbf;
+// @s2s_header_light_grey: #ededed;
+// @s2s_orange: #f15a29;
+// @s2s_blue: #227296;
 
 /* Mixins */
-.type-header{
-	text-transform: uppercase;
-	font-weight: @font-weight-demi;
-}
-.type-subheader {
-	font-weight: @font-weight-medium;
-}
-.type-body {
-	font-family: @font-stack-main;
-	font-weight: @font-weight-book;
-	color: @s2s_dark_grey;
-}
+// .type-header{
+// 	text-transform: uppercase;
+// 	font-weight: @font-weight-demi;
+// }
+// .type-subheader {
+// 	font-weight: @font-weight-medium;
+// }
+// .type-body {
+// 	font-family: @font-stack-main;
+// 	font-weight: @font-weight-book;
+// 	color: @s2s_dark_grey;
+// }

@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "./variables.less";
+@import "./index.less";
 
 * {
     padding: 0px;
@@ -7,43 +7,8 @@
 }
 
 
-/*
-	Variables...
-*/
-@small-screen:		320px;
-@large-screen:		1600px;
-@base-font-size:	16px;
-
-
-/*
-	Fluid typography mixin...
-*/
-.fluid-typography(@min-screen: 320px, @max-screen: 1600px, @base-font: 16px, @min-font, @max-font) {
-
-	// Min size font...
-	font-size: @min-font;
-
-	@media screen and (min-width: unit((@min-screen / @base-font),~"em") ) {
-		/**
-		 * The fluid font sizing calculation happens here (below)...
-		 * The viewport’s size is variable. 100vw is the variable in this equation because the resolved value of 100vw - ie. the value returned by getComputedStyle() - changes as the viewport’s size changes.
-		*/
-		font-size: calc( @min-font ~" + " unit(@max-font - @min-font) ~" * ((100vw - " unit((@min-screen / @base-font),~"em") ~") /" unit( (@max-screen / @base-font) - (@min-screen / @base-font) ) ~")" );
-	}
-
-	@media screen and (min-width: unit((@max-screen / @base-font),~"em") ) {
-		// Max size font...
-		font-size: @max-font;
-	}
-
-}
-
-
-/*
-	Fluid typography mixin calls...
-*/
+/*Fluid typography mixin calls...*/
 body {
-	// padding: 20px;
 	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1em, 1.2em);
 }
 

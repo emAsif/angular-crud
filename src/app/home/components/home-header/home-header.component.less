@@ -8,15 +8,11 @@
 
 .user-name {
     float: left;
-    // color: black;
     text-align: center;
     padding: 12px 25px;
-    // text-decoration: none;
-    // font-size: @header-text-size;
     line-height: 12px;
     border: 1px dotted @primary-color;
-    // background-color: @color-secondary;
-    margin-right: 30px;
+    margin-right: 25px;
 }
 
 .close-icon {
@@ -35,10 +31,10 @@
     float: right;
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: @small-screen) {
     .user-name {
         padding: 3px 6px;
         line-height: 28px;
-    //   display: none;
+        //   display: none;
     }
-  }
+}

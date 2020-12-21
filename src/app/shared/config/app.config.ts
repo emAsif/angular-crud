@@ -18,6 +18,6 @@ export const Config = {
   },
   endpoint: {},
   message: {
-    loginText: 'Akelius'
+    loginText: 'Akelius Gmbh'
   },
 };

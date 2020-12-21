@@ -1,0 +1,112 @@
+@import '../variables.less';
+
+.form-container(@maxWidth, @height) {
+    background-color: @form-background-color;
+    max-width: @maxWidth;
+    padding: @form-padding;
+    height: @height;
+    // margin: auto;
+    border-top: 5px solid @primary-color;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.form-btn {
+    background: @primary-color;
+    height: 35px;
+    line-height: 35px;
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: @color-fourth;
+    // font-size: 18px;
+    margin-bottom: 10px;
+
+    &:hover {
+        background-color: @color-secondary;
+    }
+}
+
+.form-field {
+    border: 1px solid @form-border;
+    outline: none;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    transition: all 0.30s ease-in-out;
+
+    &:hover {
+        background-color: @color-fourth;
+    }
+
+    &:focus {
+        -webkit-box-shadow: 0 0 2px 1px @primary-color;
+        -moz-box-shadow: 0 0 2px 1px @primary-color;
+        box-shadow: 0 0 2px 1px @primary-color;
+        border: 1px solid @primary-color;
+        background: @input-focus-background;
+    }
+}
+
+.form-heading {
+    color: @color-secondary;
+    line-height: 14px;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
+.form-field-div {
+    width: 90%;
+    position: relative;
+    margin: 20px auto;
+}
+
+.error-border {
+    -webkit-box-shadow: 0 0 1px 1px @error-font-color;
+    -moz-box-shadow: 0 0 1px 1px @error-font-color;
+    box-shadow: 0 0 2px 1px @error-font-color;
+    border: 1px solid @error-font-color;
+}
+
+.error-div {
+    color: @error-font-color;
+    padding: 6px 4px;
+    border-radius: 1px;
+    background-color: @error-background-color;
+}
+
+.success-div {}
+
+.notify-div {}
+
+.field-size(@width) {
+    width: @width;
+    padding: 8px 0 8px 8px;
+}
+
+.form-responsive(@maxWidth) {
+    @media only screen and (max-width: @maxWidth) {
+        .wrapper {
+            width: 100%;
+        }
+
+        .input-name {
+            margin-bottom: -10px;
+        }
+
+        .name {
+            width: 100%;
+            padding: 8px 0 8px 8px;
+            margin-bottom: 10px;
+        }
+
+        .input-name span {
+            padding: 0;
+            margin: 0;
+        }
+
+        .wrapper h4 {
+            line-height: 23px;
+        }
+    }
+}
