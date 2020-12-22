@@ -1,9 +1,13 @@
-@import '../../styles/index.less';
+@import '../../../../styles/index.less';
 
-.wrapper {
-  .form-container(@maxWidth: 500px, @height: 260px);
+// .wrapper {
+  // .center-display;
+  // .form-container(@maxWidth: 500px, @height: 260px);
   // margin: auto;
   // border-top: 5px solid @primary-color;
+// }
+.loading {
+  .spinner;
 }
 
 .form-val-error {
@@ -18,7 +22,7 @@
   .error-border;
 }
 
-.wrapper h4 {
+.heading {
  .form-heading;
 }
 
@@ -36,9 +40,11 @@
 }
 
 
-// @media @mobile {
-  
-// }
-form {
-  margin: 25px 25px;
+.center-s {
+  .center-display;
+}
+
+
+.form-s {
+  .form-container(@maxWidth: 500px, @height: 260px);
 }

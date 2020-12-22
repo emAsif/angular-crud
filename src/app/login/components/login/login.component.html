@@ -1,8 +1,11 @@
 <!--start log in form -->
-<div class="wrapper">
-    <h4>{{loginHeading}}</h4>
-    <div class="form-conteniar">
+<div class="center-s">
+    <div class="form-s">
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="heading">
+                <h4>{{loginHeading}}</h4>
+            </div>
+            <!-- <div class="loading"></div> -->
             <div class="input-name">
                 <input type="email" formControlName="username" placeholder="username" class="text-name">
                 <div *ngIf="username.touched && username.invalid" class="form-val-error">

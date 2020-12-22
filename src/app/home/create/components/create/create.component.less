@@ -1,18 +1,27 @@
 @import '../../../../../styles/index.less';
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    // background-color: @component-background;
-}
+// * {
+//     margin: 0;
+//     padding: 0;
+//     box-sizing: border-box;
+//     // background-color: @component-background;
+// }
 
-.wrapper {
-    .form-container(@maxWidth: 500px, @height: 370px);
-    // margin: 50px auto 0;
+.center-s {
+    .center-display;
 }
+  
+  
+  .form-s {
+    .form-container(@maxWidth: 650px, @height: auto);
+  }
+// .wrapper {
+//     .form-container(@maxWidth: 500px, @height: 370px);
+//     .top-border-s;
+//     // margin: 50px auto 0;
+// }
 
-.wrapper h4 {
+.heading {
     .form-heading;
 }
 
@@ -36,8 +45,7 @@
     padding: 8px;
 }
 
-.text-name,
-.name {
+.text-name {
     .form-field;
 }
 
