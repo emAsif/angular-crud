@@ -1,7 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/core/services';
-import { User } from 'src/app/models/user';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Config } from '../../../shared/config/app.config'
 
 @Component({
@@ -9,9 +6,12 @@ import { Config } from '../../../shared/config/app.config'
   templateUrl: './home-side-menu.component.html',
   styleUrls: ['./home-side-menu.component.less']
 })
+
 export class HomeSideMenuComponent implements OnInit {
-  logoText = Config.message.loginText;
   @Output() signOut = new EventEmitter<void>();
+  @Input() isToggled: boolean;
+
+  logoText = Config.message.loginText;
 
   items: {name: string, routerLink: string}[] = [
     { name: 'Home', routerLink: '/home/start'},
@@ -28,4 +28,8 @@ export class HomeSideMenuComponent implements OnInit {
   logout() {
     this.signOut.emit()
   }
+
+  // toggled(isToggled: boolean) {
+  //   this.isToggled = isToggled;
+  // }
 }

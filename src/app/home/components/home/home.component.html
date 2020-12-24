@@ -1,9 +1,22 @@
-<!-- side menu  -->
-<home-side-menu (signOut)="logout()"></home-side-menu>
+<!-- Begin App  -->
 
-<!-- Add all page content inside this div if you want the side nav to push page content to the right -->
-<div id="main">
-  <home-header [currentUser]="currentUser"></home-header>
+<div class="container">
+
+  <!-- home-side-menu component -->
+  <home-side-menu (signOut)="logout()" [isToggled]="isToggled"></home-side-menu>
+
+  <div class="content">
+
+    <!-- hoem-header component -->
+    <home-header [currentUser]="currentUser" (toggled)="toggled($event)"></home-header>
+
+    <div class="main">
+      <!-- BEGIN Page Content -->
+
+        <router-outlet></router-outlet>
+
+      <!-- END Page Content -->
+  </div>
 </div>
-<!-- BEGIN Page Content -->
-<router-outlet></router-outlet>
+
+<!-- End App -->

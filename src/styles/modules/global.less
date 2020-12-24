@@ -1,0 +1,35 @@
+
+@import "../mixins/typography.less";
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+html, body {
+    height: 100%;
+    // height: 100vh;
+    width: 100%;
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+    padding: 8px 16px;
+}
+
+/*Fluid typography mixin calls...*/
+body {
+	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1em, 1.2em);
+    // font-family: 'Segoe UI', 'Helvetica', sans-serif;
+}
+
+h1 {
+	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.6em, 3em);
+}
+
+h2 {
+	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.4em, 2.6em);
+}
+
+h3 {
+	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.2em, 2.2em);
+}

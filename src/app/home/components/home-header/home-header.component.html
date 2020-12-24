@@ -1,10 +1,11 @@
-<div class="header">
-    <div *ngIf="showCloseIcon; else elseBlock" class="align-h-items">
-        <span class="close-icon" (click)="closeNav()">&#10006;</span>
+<div class="toolbar">
+    <div>
+        <div *ngIf="isToggled; else elseBlock">
+            <span class="close-icon" (click)="toggle()">&#10006;</span>
+        </div>
+        <ng-template #elseBlock><span class="close-icon" (click)="toggle()">&#9776;</span></ng-template>
     </div>
-    <ng-template #elseBlock><span class="close-icon" #open (click)="openNav()">&#9776;</span></ng-template>
-
-    <div class="header-right">
+    <div>
         <p class="user-name">{{currentUser.username}}</p>
     </div>
 </div>

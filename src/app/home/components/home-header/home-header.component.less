@@ -1,20 +1,19 @@
 @import '../../../../styles/variables.less';
 
-.header {
-    overflow: hidden;
+
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 45px;
+    width: 100%;
+    justify-content: space-between;
     background-color: @header-background;
-    padding: 5px 2.5px;
-    font-size: @header-text-size;
-}
-.align-h-items {
-    display: inline-block;
 }
 
 .user-name {
-    float: left;
-    text-align: center;
-    padding: 12px 25px;
-    line-height: 12px;
+    padding: 8px 16px;
+    line-height: 16px;
     border: 1px dotted @primary-color;
     margin-right: 25px;
 }
@@ -27,18 +26,9 @@
     line-height: 36px;
 }
 
-// .header p:hover {
-//     cursor: pointer;
-// }
-
-.header-right {
-    float: right;
-}
-
-@media screen and (max-width: @small-screen) {
+@media screen and (max-width: @medium-screen) {
     .user-name {
-        // padding: 3px 6px;
-        // line-height: 28px;
-          display: none;
+        display: 2px 2px;
+        margin-right: 0px;
     }
 }

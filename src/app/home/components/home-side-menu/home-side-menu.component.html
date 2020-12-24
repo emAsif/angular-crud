@@ -1,12 +1,14 @@
-<nav id="mySidenav">
-  <h4>{{logoText}}</h4>
-  <ul>
-    <li *ngFor="let item of items;">
-      <a [routerLink]="item.routerLink" routerLinkActive='active-item'>{{item.name}}</a>
-    </li>
-    <br>
-    <li>
-      <a routerLink="#" (click)="logout()">Logout</a>
-    </li>
-  </ul>
-</nav>
+  <div class="sidebar" [ngClass]="{'open' : isToggled}">
+    <nav>
+      <h4>{{logoText}}</h4>
+      <ul>
+        <li *ngFor="let item of items;">
+          <a [routerLink]="item.routerLink" routerLinkActive='active-item'>{{item.name}}</a>
+        </li>
+        <br>
+        <li>
+          <a routerLink="#" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </nav>
+  </div>

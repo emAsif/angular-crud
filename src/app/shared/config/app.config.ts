@@ -18,6 +18,22 @@ export const Config = {
   },
   endpoint: {},
   message: {
-    loginText: 'Akelius Gmbh'
-  },
+    // prefixed with components name
+    loginText: 'Akelius Gmbh',
+    startHeading: 'Welcome to the App',
+    startsubHeading: 'Click on the top left burger menu to start using the App. ',
+    startText: 'This app covers all the tasks mentioned in the assignment. For more details look for the attached documentation.',
+    viewHeading: 'Registered Users',
+    viewsubHeading: 'List of all the registered users',
+    viewFirstName: 'First Name',
+    viewLastName: 'Last Name',
+    viewEmail: 'Email-ID',
+    viewBirthday: 'Birthday',
+    createFirstName: 'First Name',
+    createLastName: 'Last Name',
+    createEmail: 'Email-ID',
+    createBirthday: 'Birthday',
+    createAdress: 'Birthday',
+    
+  }
 };

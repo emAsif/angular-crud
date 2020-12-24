@@ -1,8 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from '../../../models/user';
-
-declare const openNavHandler: any;
-declare const closeNavHandler: any;
 
 @Component({
   selector: 'home-header',
@@ -10,22 +7,24 @@ declare const closeNavHandler: any;
   styleUrls: ['./home-header.component.less']
 })
 export class HomeHeaderComponent implements OnInit {
-  @Input() currentUser: User;
+  @Input() currentUser: User; //current user data
 
-  showCloseIcon = false;
+  @Output() toggled = new EventEmitter<boolean>();
+
+  // to see the side menu slide out by default set it to true
+  isToggled: boolean = true;
 
   constructor() { }
 
   ngOnInit(): void {
+    //to Load the side menu by default uncomment this line an set the isToggled property to true.
+
+    this.toggled.emit(this.isToggled);
   }
   
-  openNav() {
-    this.showCloseIcon = true;
-    openNavHandler();
-  }
-
-  closeNav() {
-    this.showCloseIcon = false;
-    closeNavHandler();
+  toggle(): void {
+    this.isToggled = !this.isToggled;
+    
+    this.toggled.emit(this.isToggled); // emit toggle menu boolean
   }
 }

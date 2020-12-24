@@ -1,5 +1,17 @@
 @import '../variables.less';
 
+
+.flex-container(@flex-direction) {
+    display: flex;
+    flex-direction: @flex-direction; 
+    width: 100%;
+    height: 100%;
+}
+
+
+
+//used in login form
+
 .form-container(@maxWidth, @height) {
     background-color: @color-fourth;
     width: @maxWidth;
@@ -19,9 +31,10 @@
 }
 
 .form-btn {
-    background: @primary-color;
+    // background: @primary-color;
+    background: @color-secondary;
     height: 35px;
-    line-height: 35px;
+    line-height: 27px;
     width: 100%;
     border: none;
     outline: none;
@@ -31,11 +44,11 @@
     margin-bottom: 10px;
 
     &:hover {
-        background-color: @color-secondary;
+        background-color: @primary-color;
     }
 }
 
-.form-field {
+.inputControl-hover {
     border: 1px solid @form-border;
     outline: none;
     -webkit-transition: all 0.30s ease-in-out;
@@ -56,12 +69,12 @@
     }
 }
 
-.form-heading {
-    color: @color-secondary;
-    line-height: 14px;
-    padding-bottom: 15px;
-    text-align: center;
-}
+// .form-heading {
+//     color: @primary-color;
+//     line-height: 14px;
+//     padding-bottom: 12px;
+//     text-align: center;
+// }
 
 .form-field-div {
     width: 90%;

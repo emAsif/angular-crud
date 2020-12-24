@@ -1,4 +1,15 @@
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-    transition: margin-left .3s;
-  }
+@import '../../../../styles/index.less';
+
+.main {
+  padding: 20px 15px;
+  overflow-y: auto;
+}
+
+// .flex-container {
+//   .flex-container(@flex-direction: row);
+// }
+
+.content {
+  .flex-container(@flex-direction: column);
+}
+

@@ -1,28 +1,37 @@
-<div class="center-s">
+<div class="parent">
+    <div>
+        <h4 class="f-heading">Register New User</h4>
+        <small>
+            <p class="f-text">
+                Please fill the Details to Register yourself.
+            </p>
+            <p>&nbsp;</p>
+        </small>
 
-    <div class="form-s">
-        <form>
-            <div class="heading">
-                <h4>Register New User</h4>
-            </div>
-            <div class="input-name">
-                <input type="text" placeholder="First Name" class="name">
-                <span class="last">
-                    <input type="text" placeholder="Last Name" class="name">
-                </span>
-            </div>
-            <div class="input-name">
-                <input type="email" placeholder="Email" required class="text-name">
-            </div>
-            <div class="input-name">
-                <input type="password" placeholder="Password" class="text-name">
-            </div>
-            <div class="input-name">
-                <input type="password" placeholder="Re-type Password" class="text-name">
-            </div>
-            <div class="input-name">
-                <input class="button" type="submit" value="Register" />
-            </div>
-        </form>
+        <div class="form-group">
+            <label>{{config.message.createFirstName}}:</label>
+            <input placeholder="FisrsName" type="text" class="input-control" required />
+
+            <label class="right-inline">{{config.message.createLastName}}:</label>
+            <input placeholder="LastName" type="text" class="input-control" required />
+        </div>
+        <div class="form-group">
+            <label>{{config.message.createEmail}}:</label>
+            <input placeholder="Email-ID" type="email" class="input-control" required />
+
+            <label class="right-inline">{{config.message.createBirthday}}:</label>
+            <input placeholder="Date of Birth" type="date" class="input-control" required />
+        </div>
+        <div class="form-group">
+            <label>{{config.message.createAdress}}</label>
+            <textarea class="input-control" required>32 North End</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>&nbsp;</label>
+            <button class="f-btn">Submit</button>
+            <button class="f-btn">Reset</button>
+
+        </div>
     </div>
 </div>

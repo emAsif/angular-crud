@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { isUndefined } from 'util';
+import { Config } from '../../../../shared/config/app.config';
 
 @Component({
   selector: 'app-create',
@@ -8,6 +9,7 @@ import { isUndefined } from 'util';
   styleUrls: ['./create.component.less']
 })
 export class CreateComponent implements OnInit {
+  config = Config;
 
   constructor(private route: ActivatedRoute, private _router: Router) { }
 

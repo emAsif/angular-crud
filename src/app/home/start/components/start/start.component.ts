@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Config } from '../../../../shared/config/app.config';
 
 @Component({
   selector: 'app-start',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./start.component.less']
 })
 export class StartComponent implements OnInit {
+  config = Config;
 
   constructor() { }
 

@@ -30,10 +30,7 @@
             "styles": [
               "src/styles/styles.less"
             ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.min.js",
-              "src/styles/js/custome.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
