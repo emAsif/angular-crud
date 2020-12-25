@@ -1,37 +1,58 @@
+<!--start log in form -->
 <div class="parent">
     <div>
         <h4 class="f-heading">Register New User</h4>
-        <small>
-            <p class="f-text">
-                Please fill the Details to Register yourself.
-            </p>
-            <p>&nbsp;</p>
-        </small>
+        <div class="form-inline">
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                <div *ngIf="error" class="error-notify">{{error}}</div>
 
-        <div class="form-group">
-            <label>{{config.message.createFirstName}}:</label>
-            <input placeholder="FisrsName" type="text" class="input-control" required />
+                <label>{{config.message.createFirstName}}:</label>
+                <input placeholder="Enter FirstName" formControlName="firstName" type="text"
+                    required />
 
-            <label class="right-inline">{{config.message.createLastName}}:</label>
-            <input placeholder="LastName" type="text" class="input-control" required />
-        </div>
-        <div class="form-group">
-            <label>{{config.message.createEmail}}:</label>
-            <input placeholder="Email-ID" type="email" class="input-control" required />
+                <div *ngIf="firstName.touched && firstName.invalid" class="form-val-error">
+                    <div *ngIf="firstName.hasError('required')">Username is required</div>
+                    <div *ngIf="firstName.hasError('cannotContainSpace')">Username cannot contain space</div>
+                    <div *ngIf="firstName.hasError('minlength')">Username should be atleast
+                        {{firstName.errors.minlength.requiredLength}} characters.</div>
+                    <div *ngIf="firstName.hasError('maxlenght')">Username cannot be more than
+                        {{firstName.errors.minlength.requiredLength}} charaters.</div>
+                </div>
 
-            <label class="right-inline">{{config.message.createBirthday}}:</label>
-            <input placeholder="Date of Birth" type="date" class="input-control" required />
-        </div>
-        <div class="form-group">
-            <label>{{config.message.createAdress}}</label>
-            <textarea class="input-control" required>32 North End</textarea>
-        </div>
+                <label>{{config.message.createLastName}}:</label>
+                <input placeholder="Enter LastName" type="text" formControlName="lastName"
+                    required />
 
-        <div class="form-group">
-            <label>&nbsp;</label>
-            <button class="f-btn">Submit</button>
-            <button class="f-btn">Reset</button>
+                <div *ngIf="lastName.touched && lastName.invalid" class="form-val-error">
+                    <div *ngIf="lastName.hasError('required')">lastName is required</div>
+                    <div *ngIf="lastName.hasError('cannotContainSpace')">lastName cannot contain space</div>
+                    <div *ngIf="lastName.hasError('minlength')">lastName should be atleast
+                        {{lastName.errors.minlength.requiredLength}} characters.</div>
+                    <div *ngIf="lastName.hasError('maxlenght')">lastName cannot be more than
+                        {{lastName.errors.minlength.requiredLength}} charaters.</div>
+                </div>
 
+                <label>{{config.message.createEmail}}:</label>
+                <input placeholder="Enter Email-ID" type="email" formControlName="email"
+                    required />
+
+
+                <label>{{config.message.createBirthday}}:</label>
+                <input placeholder="Enter Date of Birth" type="date" formControlName="birthday"
+                    required />
+
+                <label>{{config.message.createAdress}}</label>
+                <textarea placeholder="Address is optional" formControlName="address"
+                    required></textarea>
+
+                <label>&nbsp;</label>
+                <button class="button" type="submit"
+                    [ngStyle]="{'cursor':!registrationForm.valid ? 'not-allowed' : 'pointer' }"
+                    [value]="loading ? 'Logining' : 'Login'">Submit</button>
+                <button>Reset</button>
+
+            </form>
         </div>
     </div>
 </div>
+<!--end log in form -->

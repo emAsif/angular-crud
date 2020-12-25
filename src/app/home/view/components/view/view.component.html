@@ -1,23 +1,42 @@
-<!-- <div class="parent"> -->
-  <!-- <div> -->
+<div class="parent">
+  <div>
     <h4 class="f-heading">{{config.message.viewHeading}}</h4>
     <p class="f-text">{{config.message.viewsubHeading}}</p>
+  
 
-    <div style="overflow-x:auto;">
-      <table>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Birthday</th>
-          <th>Email</th>
+    <table role="table">
+      <thead role="rowgroup">
+        <tr role="row">
+          <th role="columnheader">{{config.message.createFirstName}}</th>
+          <th role="columnheader">{{config.message.createLastName}}</th>
+          <th role="columnheader">{{config.message.createEmail}}</th>
+          <th role="columnheader">{{config.message.createBirthday}}</th>
+          <th role="columnheader">Gender</th>
         </tr>
-        <tr>
-          <td>Evealfdjkalj  asdkfjl safjdlskj </td>
-          <td>Jackson lsadjf</td>
-          <td>94klaj </td>
-          <td>94asdfa</td>
+      </thead>
+      <tbody role="rowgroup">
+        <tr role="row">
+          <td role="cell">James</td>
+          <td role="cell">Matman</td>
+          <td role="cell">Chief Sandwich Eater</td>
+          <td role="cell">Lettuce Green</td>
+          <td role="cell">Trek</td>
         </tr>
-      </table>
-    </div>
-  <!-- </div> -->
-<!-- </div> -->
+        <tr role="row">
+          <td role="cell">James</td>
+          <td role="cell">Matman</td>
+          <td role="cell">Chief Sandwich Eater</td>
+          <td role="cell">Lettuce Green</td>
+          <td role="cell">Trek</td>
+        </tr>
+        <tr role="row">
+          <td role="cell">James</td>
+          <td role="cell">Matman</td>
+          <td role="cell">Chief Sandwich Eater</td>
+          <td role="cell">Lettuce Green</td>
+          <td role="cell">Trek</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -8,10 +8,10 @@ import { Config } from '../../../../shared/config/app.config';
 })
 export class ViewComponent implements OnInit {
   config = Config;
-  
-  constructor() { }
+
 
   ngOnInit(): void {
+
   }
 
 }

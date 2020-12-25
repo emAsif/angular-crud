@@ -33,7 +33,7 @@ export const Config = {
     createLastName: 'Last Name',
     createEmail: 'Email-ID',
     createBirthday: 'Birthday',
-    createAdress: 'Birthday',
+    createAdress: 'Address',
     
   }
 };
