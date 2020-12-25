@@ -8,10 +8,13 @@ import { Config } from '../../../../shared/config/app.config';
 })
 export class StartComponent implements OnInit {
   config = Config;
+  
+  cId = 'fontResize'; // do not change this as it is refrence for the fontsize updates
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

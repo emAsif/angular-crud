@@ -1,72 +1,58 @@
 @import '../variables.less';
 @import '../mixins/common.less';
 
-.u-Flex-grow1 {
-    -webkit-flex-grow: 1;
-    -moz-flex-grow: 1;
-    flex-grow: 0.5;
-    -ms-flex-positive: 1;
-}
-
-.u-Flex-grow2 {
-    -webkit-flex-grow: 2;
-    -moz-flex-grow: 2;
-    flex-grow: 2.1;
-    -ms-flex-positive: 2;
-}
-
-.u-Flex-grow3 {
-    -webkit-flex-grow: 3;
-    -moz-flex-grow: 3;
-    flex-grow: 3;
-    -ms-flex-positive: 3;
-}
-
-.u-Flex-grow4 {
-    -webkit-flex-grow: 4;
-    -moz-flex-grow: 4;
-    flex-grow: 4;
-    -ms-flex-positive: 4;
-}
-
-.u-Flex-grow5 {
-    -webkit-flex-grow: 5;
-    -moz-flex-grow: 5;
-    flex-grow: 5;
-    -ms-flex-positive: 5;
-}
-
-.u-Flex-grow6 {
-    -webkit-flex-grow: 6;
-    -moz-flex-grow: 6;
-    flex-grow: 6;
-    -ms-flex-positive: 6;
-}
-
-.u-Flex-grow7 {
-    -webkit-flex-grow: 7;
-    -moz-flex-grow: 7;
-    flex-grow: 7;
-    -ms-flex-positive: 7;
-}
-
-.u-Flex-grow8 {
-    -webkit-flex-grow: 8;
-    -moz-flex-grow: 8;
-    flex-grow: 8;
-    -ms-flex-positive: 8;
-}
-
-.u-Flex-grow9 {
-    -webkit-flex-grow: 9;
-    -moz-flex-grow: 9;
-    flex-grow: 9;
-    -ms-flex-positive: 9;
-}
-
-.u-Flex-grow10 {
-    -webkit-flex-grow: 10;
-    -moz-flex-grow: 10;
-    flex-grow: 10;
-    -ms-flex-positive: 10;
-}
+  .table-responsive(@max-width, @min-device-width, @max-device-width) {
+      /*
+	Max width before this PARTICULAR table gets nasty. This query will take effect for any screen smaller than 760px and also iPads specifically.
+	*/
+	@media
+    only screen 
+    and (max-width: @max-width), (min-device-width: @min-device-width) 
+    and (max-device-width: @max-device-width)  {
+  
+    /* Force table to not be like tables anymore */
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+  
+    /* Hide table headers (but not display: none;, for accessibility) */
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+  
+    tr {
+      margin: 0 0 1rem 0;
+    }
+      
+    tr:nth-child(odd) {
+      background: #ccc;
+    }
+    
+    td {
+      /* Behave  like a "row" */
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+    }
+  
+    td:before {
+      /* Now like a table header */
+      position: absolute;
+      /* Top/left values mimic padding */
+      top: 0;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+    // values displayed on the samall screen.
+    td:nth-of-type(1):before { content: "First Name"; }
+    td:nth-of-type(2):before { content: "Last Name"; }
+    td:nth-of-type(3):before { content: "Email-ID"; }
+    td:nth-of-type(4):before { content: "Birthday"; }
+    td:nth-of-type(5):before { content: "Gender"; }
+  }
+  }

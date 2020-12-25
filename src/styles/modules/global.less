@@ -1,35 +1,73 @@
-
 @import "../mixins/typography.less";
 
 * {
     padding: 0px;
     margin: 0px;
 }
-html, body {
+
+html,
+body {
     height: 100%;
     // height: 100vh;
     width: 100%;
 }
 
-h1, h2, h3, h4 {
-    text-align: center;
-    padding: 8px 16px;
+html {
+    font-size: @base-font-size;
 }
 
-/*Fluid typography mixin calls...*/
-body {
-	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1em, 1.2em);
-    // font-family: 'Segoe UI', 'Helvetica', sans-serif;
+@media (max-width: 900px) {
+    html {
+        font-size: 15px;
+    }
 }
 
+@media (max-width: 400px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+/* Type will scale with document */
 h1 {
-	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.6em, 3em);
+    font-size: 3rem;
 }
 
 h2 {
-	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.4em, 2.6em);
+    text-align: center;
+    font-size: 2.5rem;
 }
 
 h3 {
-	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.2em, 2.2em);
+    text-align: center;
+    font-size: 1.5rem;
 }
+
+h4 {
+    text-align: center;
+    font-size: 1rem;
+}
+
+
+// h1, h2, h3, h4 {
+//     padding: 8px 16px;
+// }
+
+/*Fluid typography mixin calls...*/
+// body {
+//     // font-size: 34px;
+// 	.fluid-typography(600px, 1600px, @base-font-size, 1em, 1.2em);
+//     font-family: sans-serif;
+// }
+
+// h1 {
+// 	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.6em, 3em);
+// }
+
+// h2 {
+// 	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.4em, 2.6em);
+// }
+
+// h3 {
+// 	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.2em, 2.2em);
+// }

@@ -1,7 +1,33 @@
 @import '../../../../../styles/index.less';
 
-// body {font-family: Arial, Helvetica, sans-serif;}
-// * {box-sizing: border-box;}
+
+.parent {
+  .container();
+
+  & .child {
+    .container-padd;
+    .border;
+    .form-align;
+    // font
+    .f-rem;
+
+    & .s-size {
+      .head-div-align;
+
+      & h3 {
+        font-size: @font-size-h3;
+      }
+      .form-inline;
+    }
+  }
+  }
+  .fonts-btn {
+    padding: 6px 12px;
+  }
+
+// .s-size {
+//   .head-div-align;
+// }
 
 .form-inline {  
   display: flex;
@@ -10,14 +36,18 @@
   
 }
 
+.f-rem {
+  font-size: 1.2rem;
+}
+
 .form-inline label {
-  margin: 5px 10px 5px 0;
+  margin: 2px 10px 2px 0;
 }
 
 .form-inline input, textarea {
   vertical-align: middle;
   margin: 5px 10px 5px 0;
-  padding: 10px;
+  padding: 5px;
   background-color: #fff;
   .inputControl-hover;
 }
@@ -44,17 +74,10 @@
 
 
 
-
-
-
-.parent {
-  .container();
-  }
   
-.parent > div {
-    .container-style();
-    .form-align;
-}
+// .parent > div {
+  
+// }
 
 .form-align {
   // height: a  uto;
@@ -70,10 +93,8 @@
 form {
   height: 100%;
   width: 100%;
-  display: flex;
-  flex-direction: column;
+  .flex-c;
   // align-items: center;
-
   justify-content: space-between;
 }
 
@@ -90,12 +111,9 @@ form {
     .form-btn;
 }
 
-/* form specific formatting */
-// .form-group {
-//   display: flex;
-//   flex-direction: row;
-// //   width: 100%;
-// }
+.loader {
+  .spinner;
+}
 
 .form-val-error {
   color: @error-font-color;
@@ -111,49 +129,5 @@ form {
 }
 
 .f-error-display{
-  display: flex;
-  flex-direction: column;
+  .flex-c;
 }
-
-// .form-group label {
-//   flex: none;
-//   display: block;
-//   width: 102px;
-// //   font-weight: ;
-// //   font-size: 1em;
-// }
-// .form-group label.right-inline {
-//   text-align: right;  
-//   padding-right: 8px;
-//   padding-left: 10px;
-//   width: auto;
-// }
-
-// .form-group .input-control {
-//   flex: 1 1 auto;
-//   display: block;
-//   // margin-bottom: 10px;
-//   margin-right: 8px;
-//   padding: 4px;
-//   margin-top: -4px;
-//   .inputControl-hover;
-// }
-
-// @media (max-width: 768px) {
-//   .form-group {
-//     flex-direction: column;
-//   }
-//   .form-group .input-control {
-//     margin-top: 2px;
-//   }
-//   .form-group label.right-inline {
-//     text-align: left;  
-//     padding-right: 0;
-//     padding-left: 0;   
-//   }
-// }
-// @media (max-width: 768px) {
-//     .main-content {
-//       padding: 20px 8px;
-//     }
-//   }

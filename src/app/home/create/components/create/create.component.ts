@@ -16,6 +16,8 @@ export class CreateComponent implements OnInit {
   loading = false;
   submitted = false;
   error = '';
+  // to inform child about the current state
+  cRef = 'cFont'
 
   constructor(
     private route: ActivatedRoute,

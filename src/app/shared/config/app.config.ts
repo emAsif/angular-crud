@@ -35,5 +35,15 @@ export const Config = {
     createBirthday: 'Birthday',
     createAdress: 'Address',
     
+  },
+  // custome font sizes, new fonts can be added dynamically
+  fonts: {
+    small: '1rem',
+    medium: '1.2rem',
+    large: '1.4rem',
+
+    fSmall: 'Small',
+    fLarge: 'Large',
+    fMedium: 'Medium',
   }
 };

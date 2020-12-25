@@ -9,6 +9,8 @@ import { Config } from '../../../../shared/config/app.config';
 export class ViewComponent implements OnInit {
   config = Config;
 
+  cRef = 'refId'; // dom refrence id for fonts resizing.
+
 
   ngOnInit(): void {
 

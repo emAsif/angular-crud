@@ -1,8 +1,19 @@
 <!--start log in form -->
 <div class="parent">
-    <div>
-        <h4 class="f-heading">Register New User</h4>
+    <div class="child" id="cFont">
+        <div class="s-size">
+            <div style="flex-grow: 10">
+              <h3>{{config.message.startHeading}}</h3>
+            </div>
+      
+            <div style="flex-grow: 0" class="fonts-btn">
+                <!-- fonts shared compoenent -->
+              <app-fonts [state]="cRef"></app-fonts>
+            </div>
+          </div>
+          <hr>
         <div class="form-inline">
+            <div class="loader"></div>
             <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
                 <div *ngIf="error" class="error-notify">{{error}}</div>
 

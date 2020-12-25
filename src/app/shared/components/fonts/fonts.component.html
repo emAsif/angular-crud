@@ -1,0 +1,9 @@
+<!-- span used to align the buttons inline -->
+<span *ngFor="let size of sizes">
+  <button type="button" (click)="fontResize(size)">{{size}}</button>
+</span>
+<!-- <select>
+        <div *ngFor="let size of sizes">
+        <option value="volvo" (click)="fontResize(size)">{{size}}</option>
+        </div> 
+      </select> -->

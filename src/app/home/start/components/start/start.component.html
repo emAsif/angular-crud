@@ -1,9 +1,38 @@
 <div class="parent">
-    <div>
-      <h3>{{config.message.startHeading}}</h3>
-      <h4>{{config.message.startsubHeading}}</h4>
-      <p class="para-padding">
+  <div class="child" id="fontResize">
+    <div class="s-size">
+      <div style="flex-grow: 10">
+        <h3>{{config.message.startHeading}}</h3>
+      </div>
+
+      <div style="flex-grow: 0">
+      <app-fonts [state]="cId"></app-fonts>
+      </div>
+    </div>
+    <h4>{{config.message.startsubHeading}}</h4>
+      <p>
         {{config.message.startText}}
       </p>
   </div>
 </div>
+
+
+<!-- <div class="parent">
+  <div>
+    <div style="flex-grow: 8">
+      <h3>{{config.message.startHeading}}</h3>
+      <h4>{{config.message.startsubHeading}}</h4>
+  <small>
+    <p class="para-padding">
+      {{config.message.startText}}
+    </p>
+  </small>
+    </div>
+    
+    <div style="flex-grow: 2">
+    <button class="tablinks">Large</button>
+    <button class="tablinks">Medium</button>
+    <button class="tablinks">small</button>
+  </div>
+  </div>
+</div> -->

@@ -2,18 +2,31 @@
 
 //basic layout mixin for each component
 .container {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    // align-items: center;  // Align Items Vertically
-    justify-content: center;  // Align Items Horizontally
-    // background: wheat;
-  }
-  
-  .container-style {
-    background-color: white;
-    border: 1px solid gray;
-    padding: 25px;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  // align-items: center;  // Align Items Vertically
+  justify-content: center; // Align Items Horizontally
+}
+
+.container-padd {
+  // margin: 20px 15px;
+  padding: 20px 15px;
+}
+
+.flex-r {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-c {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-err {
+  color: @error-font-color;
+  font-size: 14px;
 }
 
 // headings
@@ -22,4 +35,17 @@
   line-height: 14px;
   padding-bottom: 12px;
   text-align: center;
+}
+
+.border {
+  border: 3px solid @primary-color;
+}
+
+// align header for components
+
+.head-div-align {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px 2px;
+  height: auto;
 }
