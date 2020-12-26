@@ -6,7 +6,7 @@
 
   & .child {
     .container-padd;
-    .border;
+    .border(@border-color);
     .form-align;
     // font
     .f-rem;
@@ -25,13 +25,8 @@
     padding: 6px 12px;
   }
 
-// .s-size {
-//   .head-div-align;
-// }
-
-.form-inline {  
+.form-inline {
   display: flex;
-  // flex-direction:column;
   flex-flow: stretch;
   
 }
@@ -56,46 +51,11 @@
   .form-btn;
 }
 
-// .form-inline button:hover {
-//   .inputControl-hover;
-// }
-
-@media (max-width: 800px) {
-  .form-inline input {
-    margin: 10px 0;
-  }
-  
-  .form-inline {
-    flex-direction: column;
-    align-items: stretch;
-  }
-}
-
-
-
-
-  
-// .parent > div {
-  
-// }
-
-.form-align {
-  // height: a  uto;
-  max-height: 612px;
-  min-height: 570px;
-  min-width: 200px;
-  max-width: 690px;
-  width: inherit;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: space-between;
-}
 form {
   height: 100%;
   width: 100%;
-  .flex-c;
-  // align-items: center;
   justify-content: space-between;
+  .flex(@flex: column);
 }
 
 .f-heading {
@@ -129,5 +89,14 @@ form {
 }
 
 .f-error-display{
-  .flex-c;
+  .flex(@flex: column);
 }
+
+.form-align {
+  max-height: 612px;
+  min-height: 570px;
+  min-width: 200px;
+  max-width: 690px;
+  width: inherit;
+}
+.main-header-query(@max-width: 700px);

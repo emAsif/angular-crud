@@ -1,12 +1,11 @@
-@import '../../../../../styles/mixins//common.less';
-
+@import '../../../../../styles/mixins/common.less';
 
 .parent {
   .container();
 
   & .child {
     .container-padd;
-    .border;
+    .border(@border-color);
     .f-rem;
 
     & .s-size {
@@ -27,3 +26,5 @@
 .f-rem {
   font-size: 1.2rem;
 }
+
+.main-header-query(@max-width: 700px);

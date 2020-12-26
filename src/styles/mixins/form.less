@@ -50,7 +50,7 @@
 }
 
 .inputControl-hover {
-    border: 1px solid @form-border;
+    .border(@form-border);
     outline: none;
     -webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
@@ -70,24 +70,11 @@
     }
 }
 
-// .form-heading {
-//     color: @primary-color;
-//     line-height: 14px;
-//     padding-bottom: 12px;
-//     text-align: center;
-// }
-
-// .form-field-div {
-//     width: 90%;
-//     position: relative;
-//     margin: 20px auto;
-// }
-
 .error-border {
     -webkit-box-shadow: 0 0 1px 1px @error-font-color;
     -moz-box-shadow: 0 0 1px 1px @error-font-color;
     box-shadow: 0 0 2px 1px @error-font-color;
-    border: 1px solid @error-font-color;
+    .border(@error-font-color);
 }
 
 .error-div {
@@ -113,8 +100,8 @@
     left: 55%;
     // top: 50%;
     top: 40%;
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    width: 30px;
     margin: 0px auto;
     -webkit-animation: rotation .8s infinite linear;
     -moz-animation: rotation .8s infinite linear;
@@ -166,30 +153,3 @@
         transform: rotate(359deg);
     }
 }
-
-// .form-responsive(@maxWidth) {
-//     @media only screen and (max-width: @maxWidth) {
-//         .center-s {
-//             width: 100%;
-//         }
-
-//         .input-name {
-//             margin-bottom: -10px;
-//         }
-
-//         .name {
-//             width: 100%;
-//             padding: 8px 0 8px 8px;
-//             margin-bottom: 10px;
-//         }
-
-//         .input-name span {
-//             padding: 0;
-//             margin: 0;
-//         }
-
-//         .heading h4 {
-//             line-height: 23px;
-//         }
-//     }
-// }

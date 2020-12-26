@@ -1,9 +1,8 @@
-@import '../../../../styles/variables.less';
+@import '../../../../styles/mixins/common.less';
 
 
 .toolbar {
-    display: flex;
-    flex-direction: row;
+    .flex(@flex: row);
     align-items: center;
     height: 45px;
     width: 100%;
@@ -14,7 +13,7 @@
 .user-name {
     padding: 8px 16px;
     line-height: 16px;
-    border: 1px dotted @primary-color;
+    .dotted-border(@border-color);
     margin-right: 25px;
 }
 
@@ -26,6 +25,7 @@
     line-height: 36px;
 }
 
+//used to resize the username icon.
 @media screen and (max-width: @medium-screen) {
     .user-name {
         display: 2px 2px;
