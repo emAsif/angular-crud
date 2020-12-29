@@ -1,8 +1,7 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/core/services';
 import { User } from 'src/app/models/user';
-import { HomeHeaderComponent } from '../home-header/home-header.component';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +11,7 @@ import { HomeHeaderComponent } from '../home-header/home-header.component';
 export class HomeComponent implements OnInit {
   currentUser: User;
  
-  isToggled: boolean;
+  isToggled: boolean= true;
 
   constructor(
     private router: Router,
@@ -21,15 +20,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-
   }
 
-  logout() {
+  logout(): void {
     this.authenticationService.logout();
     this.router.navigate(['/login']);
   }
 
-  toggled(isToggled: boolean) {
+  toggled(isToggled: boolean): void {
     this.isToggled = isToggled;
   }
 }

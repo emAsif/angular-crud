@@ -30,12 +30,12 @@
     border-top: 5px solid @primary-color;
 }
 
-.form-btn {
+.form-btn(@width) {
     // background: @primary-color;
     background: @color-secondary;
     height: 35px;
     line-height: 27px;
-    width: 100%;
+    width: @width;
     border: none;
     outline: none;
     cursor: pointer;
@@ -95,14 +95,16 @@
 }
 
 .spinner() {
-    position: absolute;
+    // position: absolute;
     // left: 50%;
-    left: 55%;
+    // left: 55%;
     // top: 50%;
-    top: 40%;
-    height: 30px;
-    width: 30px;
-    margin: 0px auto;
+    // top: 30%;
+    margin: auto;
+    align-self: center;
+    height: 20px;
+    width: 20px;
+    // margin: 0px auto;
     -webkit-animation: rotation .8s infinite linear;
     -moz-animation: rotation .8s infinite linear;
     -o-animation: rotation .8s infinite linear;

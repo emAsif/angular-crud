@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import * as shared from './components/index';
 
 
@@ -9,8 +9,13 @@ import * as shared from './components/index';
   declarations: [shared.components],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule
   ],
-  exports: [shared.components, CommonModule, ReactiveFormsModule]
+  exports: [
+    shared.components, 
+    CommonModule, 
+    ReactiveFormsModule,
+    FormsModule]
 })
 export class SharedModule { }

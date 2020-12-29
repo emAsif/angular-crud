@@ -1,10 +1,10 @@
 import { FontsComponent } from './fonts/fonts.component';
-import { FormComponent } from './form/form.component';
+import { ShowErrorsComponent } from './show-errors/show-errors.component';
 
 export const components: any[] = [
     FontsComponent,
-    FormComponent
+    ShowErrorsComponent
 ];
 
 export * from './fonts/fonts.component';
-export * from './form/form.component';
+export * from './show-errors/show-errors.component';

@@ -34,6 +34,11 @@ export const Config = {
     createEmail: 'Email-ID',
     createBirthday: 'Birthday',
     createAdress: 'Address',
+    sideNavHome: 'Home',
+    sideNavView: 'View',
+    sideNavCreate: 'Create',
+    signOut: 'Sign Out',
+    signIn: 'Sign In',
     
   },
   // custome font sizes, new fonts can be added dynamically
@@ -42,8 +47,8 @@ export const Config = {
     medium: '1.2rem',
     large: '1.4rem',
 
-    fSmall: 'Small',
-    fLarge: 'Large',
-    fMedium: 'Medium',
+    fSmall: 'Sm',
+    fLarge: 'Lg',
+    fMedium: 'Md',
   }
 };

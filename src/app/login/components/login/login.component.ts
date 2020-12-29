@@ -36,16 +36,16 @@ export class LoginComponent implements OnInit {
       username: ['',
         [
           Validators.required,
-          // Validators.minLength(4),
-          // Validators.maxLength(20),
+          Validators.minLength(4),
+          Validators.maxLength(20),
           UsernameValidators.cannotContainSpace
         ]
       ],
       password: ['',
         [
           Validators.required,
-          // Validators.minLength(4),
-          // Validators.maxLength(20)
+          Validators.minLength(4),
+          Validators.maxLength(10)
         ]
       ]
     });
@@ -55,14 +55,14 @@ export class LoginComponent implements OnInit {
   }
 
   // convenience getter for easy access to controls
-  get username() { return this.loginForm.get('username'); }
-  get password() { return this.loginForm.get('password'); }
+  // get username() { return this.loginForm.get('username'); }
+  // get password() { return this.loginForm.get('password'); }
 
   onSubmit() {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.loginForm.invalid) {
+    if (!this.loginForm.valid) {
       return;
     }
     this.loading = true;

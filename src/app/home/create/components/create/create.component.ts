@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { isUndefined } from 'util';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Config } from '../../../../shared/config/app.config';
+import { UsernameValidators } from 'src/app/login/username.validators';
+import { User } from 'src/app/models/user';
+import { CreateService } from './create.service';
 
 @Component({
   selector: 'app-create',
@@ -12,34 +14,29 @@ import { Config } from '../../../../shared/config/app.config';
 export class CreateComponent implements OnInit {
   config = Config;
 
-  registrationForm: FormGroup;
+  rf: FormGroup;
   loading = false;
-  submitted = false;
+  // submitted = false;
   error = '';
-  // to inform child about the current state
+  
+  // refrence for child component
   cRef = 'cFont'
 
   constructor(
-    private route: ActivatedRoute,
     private _router: Router,
+    private createService: CreateService ,
     private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      const id = params.get('id');
-      if (!isUndefined(id) && id !== null) {
-        console.log(id)
-      }
-    });
     this.buidForm();
   }
   buidForm() {
-    this.registrationForm = this.formBuilder.group({
+    this.rf = this.formBuilder.group({
       firstName: ['',
         [
           Validators.required,
           Validators.minLength(4),
-          Validators.maxLength(20),
+          Validators.maxLength(20)
         ]
       ],
       lastName: ['',
@@ -52,45 +49,37 @@ export class CreateComponent implements OnInit {
       email: ['',
         [
           Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(20),
-          // UsernameValidators.cannotContainSpace
+          UsernameValidators.cannotContainSpace
         ]
       ],
       birthday: ['',
         [
-          Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(20)
+          Validators.required
         ]
       ],
-      address: ['',
-        [
-          // Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(20)
-        ]
-      ]
+      address: ['']
     });
   }
 
-  test() {
+  redirect() {
     setTimeout(() => {
-      this._router.navigateByUrl('/home/users');
-    }, 500);
+      this._router.navigateByUrl('/home/view');
+    }, 1000);
   }
+  
+  onSubmit(values: User) {
+    this.loading = true;
+    console.log(values)
+    // stop here if form is invalid
+    if (!this.rf.invalid) {
+      
+      this.createService.create(values).subscribe(data => {
+        console.log('submitted', data);
+        this.loading = false
+    })
+      return;
+    }
 
-      // convenience getter for easy access to controls
-      get firstName() { return this.registrationForm.get('firstName'); }
-      get lastName() { return this.registrationForm.get('lastName'); }
-    onSubmit() {
-      this.submitted = true;
-  
-      // stop here if form is invalid
-      if (this.registrationForm.invalid) {
-        return;
-      }
-  
   }
 
 }

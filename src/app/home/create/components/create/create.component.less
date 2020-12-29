@@ -5,9 +5,11 @@
   .container();
 
   & .child {
+    .flex(@flex: column);
     .container-padd;
     .border(@border-color);
     .form-align;
+    overflow-y: auto;
     // font
     .f-rem;
 
@@ -17,10 +19,51 @@
       & h3 {
         font-size: @font-size-h3;
       }
-      .form-inline;
     }
   }
   }
+  
+  /* form specific formatting */
+
+ .form-group {
+  display: flex;
+  flex-direction: row;
+  margin: 16px;
+
+}
+.form-subGroup {
+  flex-direction: column;
+}
+
+.form-group label {
+  flex: none;
+  display: block;
+  width: 125px;
+  font-weight: bold;
+  font-size: .9em;
+}
+
+.form-group label.right-inline {
+  text-align: right;  
+  padding-right: 8px;
+  padding-left: 10px;
+  // width: auto;
+}
+
+.form-group .input-control {
+  flex: 1 1 auto;
+  display: block;
+  width: 100%;
+  margin-right: 8px;
+  padding: 4px;
+  margin-top: -4px;
+  .inputControl-hover;
+}
+
+button {
+  .form-btn(@width: 30%);
+  margin-right: 5px;
+}
   .fonts-btn {
     padding: 6px 12px;
   }
@@ -35,27 +78,21 @@
   font-size: 1.2rem;
 }
 
-.form-inline label {
-  margin: 2px 10px 2px 0;
-}
-
-.form-inline input, textarea {
-  vertical-align: middle;
-  margin: 5px 10px 5px 0;
-  padding: 5px;
-  background-color: #fff;
-  .inputControl-hover;
-}
-
-.form-inline button {
-  .form-btn;
-}
-
-form {
-  height: 100%;
-  width: 100%;
-  justify-content: space-between;
-  .flex(@flex: column);
+@media (max-width: 991px) {
+  .button {
+    width: 100%;
+  }
+  .form-group {
+    flex-direction: column;
+  }
+  .form-group .input-control {
+    margin-top: 2px;
+  }
+  .form-group label.right-inline {
+    text-align: left;  
+    padding-right: 0;
+    padding-left: 0;   
+  }
 }
 
 .f-heading {
@@ -65,10 +102,6 @@ form {
 .f-text {
   .heading();
     text-align: center;
-}
-
-.f-btn {
-    .form-btn;
 }
 
 .loader {
@@ -93,10 +126,25 @@ form {
 }
 
 .form-align {
-  max-height: 612px;
-  min-height: 570px;
   min-width: 200px;
   max-width: 690px;
   width: inherit;
 }
 .main-header-query(@max-width: 700px);
+
+/* start of desktop styles */
+
+@media screen and (max-width: 991px) {
+  /* start of large tablet styles */
+  
+  }
+  
+  @media screen and (max-width: 767px) {
+  /* start of medium tablet styles */
+  
+  }
+  
+  @media screen and (max-width: 479px) {
+  /* start of phone styles */
+  
+  }

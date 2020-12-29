@@ -13,6 +13,7 @@ export class ViewComponent implements OnInit {
 
 
   ngOnInit(): void {
+    
 
   }
 

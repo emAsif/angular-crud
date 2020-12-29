@@ -1,13 +1,22 @@
   <div class="sidebar" [ngClass]="{'open' : isToggled}">
     <nav>
-      <h4>{{logoText}}</h4>
+      <h4>{{config.message.loginText}}</h4>
       <ul>
-        <li *ngFor="let item of items;">
+        <!-- <li *ngFor="let item of items">
           <a [routerLink]="item.routerLink" routerLinkActive='active-item'>{{item.name}}</a>
+        </li> -->
+        <li>
+          <a routerLink="/home/start" routerLinkActive='active-item'>{{config.message.sideNavHome}}</a>
+        </li>
+        <li>
+        <a routerLink="/home/view" routerLinkActive='active-item'>{{config.message.sideNavView}}</a>
+      </li>
+        <li>
+          <a [routerLink]="['/home/create', currentUser.id]" routerLinkActive='active-item'>{{config.message.sideNavCreate}}</a>
         </li>
         <br>
         <li>
-          <a routerLink="#" (click)="logout()">Logout</a>
+          <a routerLink="#" (click)="logout()">{{config.message.signOut}}</a>
         </li>
       </ul>
     </nav>

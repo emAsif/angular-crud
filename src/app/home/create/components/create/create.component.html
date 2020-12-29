@@ -2,68 +2,85 @@
 <div class="parent">
     <div class="child" id="cFont">
         <div class="s-size">
-            <div style="flex-grow: 10">
-              <h3>{{config.message.startHeading}}</h3>
+            <div>
+                <h3>{{config.message.startHeading}}</h3>
+                <small>
+                    <p>
+                        This example demonstrates how to create a simple form layout that can responsively expand and
+                        stack depending on the width of the page.
+                    </p>
+                    <p>&nbsp;</p>
+                </small>
             </div>
-      
-            <div style="flex-grow: 0" class="fonts-btn">
+
+            <div class="fonts-btn">
                 <!-- fonts shared compoenent -->
-              <app-fonts [state]="cRef"></app-fonts>
+                <app-fonts [state]="cRef"></app-fonts>
             </div>
-          </div>
-          <hr>
-        <div class="form-inline">
-            <div class="loader"></div>
-            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
-                <div *ngIf="error" class="error-notify">{{error}}</div>
-
-                <label>{{config.message.createFirstName}}:</label>
-                <input placeholder="Enter FirstName" formControlName="firstName" type="text"
-                    required />
-
-                <div *ngIf="firstName.touched && firstName.invalid" class="form-val-error">
-                    <div *ngIf="firstName.hasError('required')">Username is required</div>
-                    <div *ngIf="firstName.hasError('cannotContainSpace')">Username cannot contain space</div>
-                    <div *ngIf="firstName.hasError('minlength')">Username should be atleast
-                        {{firstName.errors.minlength.requiredLength}} characters.</div>
-                    <div *ngIf="firstName.hasError('maxlenght')">Username cannot be more than
-                        {{firstName.errors.minlength.requiredLength}} charaters.</div>
-                </div>
-
-                <label>{{config.message.createLastName}}:</label>
-                <input placeholder="Enter LastName" type="text" formControlName="lastName"
-                    required />
-
-                <div *ngIf="lastName.touched && lastName.invalid" class="form-val-error">
-                    <div *ngIf="lastName.hasError('required')">lastName is required</div>
-                    <div *ngIf="lastName.hasError('cannotContainSpace')">lastName cannot contain space</div>
-                    <div *ngIf="lastName.hasError('minlength')">lastName should be atleast
-                        {{lastName.errors.minlength.requiredLength}} characters.</div>
-                    <div *ngIf="lastName.hasError('maxlenght')">lastName cannot be more than
-                        {{lastName.errors.minlength.requiredLength}} charaters.</div>
-                </div>
-
-                <label>{{config.message.createEmail}}:</label>
-                <input placeholder="Enter Email-ID" type="email" formControlName="email"
-                    required />
-
-
-                <label>{{config.message.createBirthday}}:</label>
-                <input placeholder="Enter Date of Birth" type="date" formControlName="birthday"
-                    required />
-
-                <label>{{config.message.createAdress}}</label>
-                <textarea placeholder="Address is optional" formControlName="address"
-                    required></textarea>
-
-                <label>&nbsp;</label>
-                <button class="button" type="submit"
-                    [ngStyle]="{'cursor':!registrationForm.valid ? 'not-allowed' : 'pointer' }"
-                    [value]="loading ? 'Logining' : 'Login'">Submit</button>
-                <button>Reset</button>
-
-            </form>
         </div>
+        <hr>
+
+        <form [formGroup]="rf" (ngSubmit)="onSubmit(rf.value)">
+            <div *ngIf="loading">
+                <div  class="loader"></div>
+            </div>
+            
+            <div *ngIf="error" class="error-notify">{{error}}</div>
+
+            <div class="form-group">
+                <label>{{config.message.createFirstName}}:</label>
+                <div class="form-subGroup">
+                    <input placeholder="Enter Email-ID" type="email" formControlName="firstName" class="input-control"
+                        required />
+                    <!-- errors generic compoenent -->
+                    <app-show-errors [ctrl]="rf.get('firstName')"></app-show-errors>
+                </div>
+
+                <label class="right-inline">{{config.message.createLastName}}:</label>
+                <div class="form-subGroup" >
+                    <input placeholder="Enter Email-ID" type="email" formControlName="lastName" class="input-control"
+                        required />
+                    <!-- errors generic compoenent -->
+                    <app-show-errors [ctrl]="rf.get('lastName')"></app-show-errors>
+                <!-- </div> -->
+            </div>
+            </div>
+
+            <div class="form-group">
+                <label>{{config.message.createEmail}}:</label>
+                <div class="form-subGroup">
+                    <input placeholder="Enter Email-ID" type="email" formControlName="email" class="input-control"
+                        required />
+                    <!-- errors generic compoenent -->
+                    <app-show-errors [ctrl]="rf.get('email')"></app-show-errors>
+                </div>
+
+                <label class="right-inline">{{config.message.createLastName}}:</label>
+                <div class="form-subGroup" >
+                    <input placeholder="Enter Email-ID" type="date" formControlName="birthday" class="input-control"
+                        required />
+                    <!-- errors generic compoenent -->
+                    <app-show-errors [ctrl]="rf.get('birthday')"></app-show-errors>
+                <!-- </div> -->
+            </div>
+            </div>
+
+        
+            <div class="form-group">
+                <label>{{config.message.createAdress}}</label>
+                <!-- address is optional -->
+                <div class="form-subGroup" >
+                <textarea placeholder="Address is optional" formControlName="address" class="input-control"></textarea>
+                    </div>
+        </div>
+
+            <div class="form-group">
+                <label>&nbsp;</label>
+                <button class="button" type="submit" [ngStyle]="{'cursor':!rf.valid ? 'not-allowed' : 'pointer' }"
+                    [value]="loading ? 'Logining' : 'Login'">Submit</button>
+                <button class="button">Reset</button>
+            </div>
+        </form>
     </div>
 </div>
 <!--end log in form -->

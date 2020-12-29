@@ -1,5 +1,4 @@
 import { AbstractControl, ValidationErrors } from "@angular/forms";
-import { retry } from "rxjs/operators";
 
 export class UsernameValidators {
     static cannotContainSpace(control: AbstractControl): ValidationErrors | null {

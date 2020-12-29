@@ -6,7 +6,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
-  declarations: [create.CreateComponent],
+  declarations: [create.components],
   imports: [
     CreateRoutingModule,
     SharedModule
