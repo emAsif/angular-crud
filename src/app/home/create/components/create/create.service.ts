@@ -8,11 +8,9 @@ import { User } from 'src/app/models/user';
   providedIn: 'root'
 })
 export class CreateService {
-  private apiUrl = environment.customApiUrl;
+  private apiUrl = environment.formUrl;
 
-  constructor(
-    private http: HttpClient,
-  ) { }
+  constructor(private readonly http: HttpClient) { }
 
   create(values): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}`, values);

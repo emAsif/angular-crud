@@ -6,17 +6,11 @@ export const Config = {
     get: 'get',
     patch: 'patch'
   },
-  apiStatusCode: {
-    serverError: 500,
-    notFound: 404,
-    success: 200,
-    notAuthenticated: 403,
-    unAuthorized: 401,
-    timeout: 408,
-    noInternet: 0,
-    unprocessable: 422
+  apiStatusCode: {},
+  endpoint: {
+    apiUrl: '',
+    form: '/posts'
   },
-  endpoint: {},
   message: {
     // prefixed with components name
     loginText: 'Akelius Gmbh',
