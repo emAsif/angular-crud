@@ -3,7 +3,8 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { CoreModule } from './core/core.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './core/auth';
 
 @NgModule({
   declarations: [
@@ -11,10 +12,16 @@ import { CoreModule } from './core/core.module';
   ],
   imports: [
     BrowserModule,
-    CoreModule,
+    HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [    
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

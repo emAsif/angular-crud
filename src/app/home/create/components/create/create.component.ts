@@ -77,7 +77,6 @@ export class CreateComponent implements OnInit {
         console.log('submitted', data);
         this.loading = false
     })
-      return;
     }
 
   }

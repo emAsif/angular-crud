@@ -14,7 +14,7 @@ export class CreateService {
     private http: HttpClient,
   ) { }
 
-  create(values): Observable<User> {
-    return this.http.post<User>(`${this.apiUrl}`, values);
+  create(values): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}`, values);
   }
 }
