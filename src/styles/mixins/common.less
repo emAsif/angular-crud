@@ -1,6 +1,6 @@
 @import '../variables.less';
 
-//basic layout mixin for each component
+//basic layout for each component
 .container {
   display: flex;
   width: 100%;
@@ -8,26 +8,9 @@
   justify-content: center; // Align Items Horizontally
 }
 
-.container-padd {
-  padding: 20px 15px;
-}
-
 .flex(@flex) {
   display: flex;
   flex-direction: @flex;
-}
-
-.form-err {
-  color: @error-font-color;
-  font-size: 14px;
-}
-
-// headings
-.heading {
-  color: @color-secondary;
-  line-height: 14px;
-  padding-bottom: 12px;
-  text-align: center;
 }
 
 .border(@color) {
@@ -38,20 +21,48 @@
   border: 1px solid @color;
 }
 
-// align header for components
-
-.head-div-align {
-  display: flex;
-  justify-content: flex-end;
-  padding: 15px 2px;
-  height: auto;
+// align content header
+.head-div {
+  display:flex;
+  flex-wrap: wrap;
 }
 
+// content div size
+.content-wrapper {
+  min-width: 200px;
+  max-width: 760px;
+  width: inherit;
+  padding: 20px 15px;
+}
+
+// grid 
+.column {
+  text-align: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 1;
+
+  margin: 10px;
+  padding: 10px;
+}
+
+// grid 
+.col-1 {
+  max-width: calc(100% / 12 * 2);
+}
+
+ // div header media query
 .main-header-query(@max-width){
-  @media only screen and (max-width: @max-width) {
-    .s-size {
-      text-align: center;
-      flex-direction: column;
+  @media screen and (max-width: 768px) {
+    .container {
+      overflow: auto;
+    }
+     .column {
+       min-width: 100%;
+       width: 100%;
+       margin: 10px 0;
     }
   }
 }
+
+

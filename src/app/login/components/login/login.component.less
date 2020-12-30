@@ -1,6 +1,16 @@
 @import '../../../../styles/index.less';
 
 
+.center-s {
+  .page-center(@bg-color: @login-background);
+}
+
+.form-s {
+  background-color: @login-div-background;
+  width: 320px;
+  height: 320px;
+  padding: 12px 6px;
+}
 
 form {
   height: 100%;
@@ -10,49 +20,17 @@ form {
   .flex(@flex: column);
 }
 
+.h-div{
+  padding: 12px 6px;
+}
+
 .form-group {
-  width: 80%;
+  width: 90%;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   .flex(@flex: column);
 }
 
-form input {
-  // flex: 1 1 auto;
-  // display: block;
-  // margin-bottom: 10px;
-  // margin-right: 8px;
-  padding: 6px;
-  // margin-top: -4px;
-  .inputControl-hover;
-}
-
-.form-val-error {
-  .form-err;
-}
-
-.error-notify {
-  .error-div;
-}
-
-.text-name.ng-touched.ng-invalid {
-  .error-border;
-}
-
-.heading {
-  .heading;
-}
-
-.f-btn {
-  .form-btn(@width: 100%);
-}
-
-
-.center-s {
-  .center-display;
-}
-
-
-.form-s {
-  .form-container(@maxWidth: 500px, @height: auto);
+button {
+  .btn(@width: 100%)
 }

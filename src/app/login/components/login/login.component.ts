@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   loginHeading = Config.message.loginText;
   loading = false;
-  submitted = false;
+  // submitted = false;
   returnUrl: string;
   error = '';
 
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
   // get password() { return this.loginForm.get('password'); }
 
   onSubmit() {
-    this.submitted = true;
+    // this.submitted = true;
 
     // stop here if form is invalid
     if (!this.loginForm.valid) {

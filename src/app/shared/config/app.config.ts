@@ -39,7 +39,7 @@ export const Config = {
   fonts: {
     small: '1rem',
     medium: '1.2rem',
-    large: '1.4rem',
+    large: '1.3rem',
 
     fSmall: 'Sm',
     fLarge: 'Lg',

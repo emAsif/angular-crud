@@ -1,15 +1,14 @@
 <div class="parent">
   <div class="child" id="fontResize">
     <div class="s-size">
-      <div style="flex-grow: 10">
+      <div class="column">
         <h3>{{config.message.startHeading}}</h3>
       </div>
 
-      <div style="flex-grow: 0">
+      <div class="column col-1">
       <app-fonts [state]="cId"></app-fonts>
       </div>
     </div>
-    <h4>{{config.message.startsubHeading}}</h4>
       <p>
         {{config.message.startText}}
       </p>

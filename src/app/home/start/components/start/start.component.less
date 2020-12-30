@@ -1,15 +1,19 @@
 @import '../../../../../styles/mixins/common.less';
 
 .parent {
+  
   .container();
 
   & .child {
-    .container-padd;
-    .border(@border-color);
-    .f-rem;
+
+    .content-wrapper;
+
+    .border(@border-color); // div border
+    
+    .f-rem; // font size
 
     & .s-size {
-      .head-div-align;
+      .head-div;
 
       & h3 {
         font-size: @font-size-h3;

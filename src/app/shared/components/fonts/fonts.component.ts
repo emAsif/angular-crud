@@ -11,7 +11,7 @@ export class FontsComponent implements OnInit {
 
   config = Config;
 
-  // data is being loaded from config.ts file
+  // loaded from config.ts file
   sizes = [this.config.fonts.fSmall, this.config.fonts.fMedium, this.config.fonts.fLarge];
 
   constructor() { }
@@ -34,7 +34,7 @@ export class FontsComponent implements OnInit {
         break
 
       default:
-        console.log("Error: dom refrence Id's needs to be same went wrong");
+        console.log("Error: dom refrence Id's needs to be same. something went wrong");
     }
   }
 }

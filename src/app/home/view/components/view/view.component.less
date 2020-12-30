@@ -7,19 +7,15 @@
   .container();
 
     & .child {
-      width: inherit;
-      min-width: 172px;
-      max-width: 824px;
-      overflow-y: auto;
+ 
+      .content-wrapper; // size of container
 
-      .f-rem;
+      .f-rem; // font size
 
-      .container-padd;
-
-      .border(@primary-color);
+      .border(@primary-color); // div border
 
       & .s-size {
-         .head-div-align;
+         .head-div;
 
         & h3 {
           font-size: @font-size-h3;
@@ -33,21 +29,7 @@
     font-size: 1.2rem;
   }
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    .border(@color-fourth);
-    text-align: left;
-    padding: 6px 12px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: @color-fourth;
-  }
-
   .table-responsive(@max-width: 760px, @min-device-width: 768px, @max-device-width: 1024px);
+  
   .main-header-query(@max-width: 700px);
 

@@ -5,146 +5,70 @@
   .container();
 
   & .child {
-    .flex(@flex: column);
-    .container-padd;
-    .border(@border-color);
-    .form-align;
     overflow-y: auto;
-    // font
-    .f-rem;
+
+    .flex(@flex: column); // flex container
+
+    .border(@border-color); // div border
+     
+    .content-wrapper; // form size 
+    
+    .f-rem; // font size
 
     & .s-size {
-      .head-div-align;
+      .head-div;
 
-      & h3 {
-        font-size: @font-size-h3;
-      }
+      // & h3 {
+      //   font-size: @font-size-h3;
+      // }
     }
   }
-  }
-  
-  /* form specific formatting */
+}
 
- .form-group {
+/* form specific formatting */
+
+.form-group {
   display: flex;
   flex-direction: row;
   margin: 16px;
 
 }
+
 .form-subGroup {
   flex-direction: column;
 }
 
-.form-group label {
-  flex: none;
-  display: block;
-  width: 125px;
-  font-weight: bold;
-  font-size: .9em;
-}
 
 .form-group label.right-inline {
-  text-align: right;  
+  text-align: right;
   padding-right: 8px;
   padding-left: 10px;
   // width: auto;
 }
 
-.form-group .input-control {
-  flex: 1 1 auto;
-  display: block;
-  width: 100%;
-  margin-right: 8px;
-  padding: 4px;
-  margin-top: -4px;
-  .inputControl-hover;
-}
-
 button {
-  .form-btn(@width: 30%);
+  .btn(@width: 30%);
   margin-right: 5px;
 }
-  .fonts-btn {
-    padding: 6px 12px;
-  }
+
+.fonts-btn {
+  padding: 6px 12px;
+}
 
 .form-inline {
   display: flex;
   flex-flow: stretch;
-  
+
 }
 
 .f-rem {
   font-size: 1.2rem;
 }
 
-@media (max-width: 991px) {
-  .button {
-    width: 100%;
-  }
-  .form-group {
-    flex-direction: column;
-  }
-  .form-group .input-control {
-    margin-top: 2px;
-  }
-  .form-group label.right-inline {
-    text-align: left;  
-    padding-right: 0;
-    padding-left: 0;   
-  }
-}
-
-.f-heading {
-    .heading;
-}
-
-.f-text {
-  .heading();
-    text-align: center;
-}
-
-.loader {
-  .spinner;
-}
-
-.form-val-error {
-  color: @error-font-color;
-  font-size: large;
-}
-
-.error-notify {
-  .error-div;
-}
-
-.text-name.ng-touched.ng-invalid {
-  .error-border;
-}
-
-.f-error-display{
+.f-error-display {
   .flex(@flex: column);
 }
 
-.form-align {
-  min-width: 200px;
-  max-width: 690px;
-  width: inherit;
-}
 .main-header-query(@max-width: 700px);
 
-/* start of desktop styles */
-
-@media screen and (max-width: 991px) {
-  /* start of large tablet styles */
-  
-  }
-  
-  @media screen and (max-width: 767px) {
-  /* start of medium tablet styles */
-  
-  }
-  
-  @media screen and (max-width: 479px) {
-  /* start of phone styles */
-  
-  }
+.form-media-query(@md-screen: @medium-screen);

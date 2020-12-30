@@ -1,6 +1,6 @@
-  <div class="sidebar" [ngClass]="{'open' : isToggled}">
+  <div class="sidebar" [ngClass]="{'open' : isToggled}" >
     <nav>
-      <h4>{{config.message.loginText}}</h4>
+      <h3 class="sidNav-heading">{{config.message.loginText}}</h3>
       <ul>
         <!-- <li *ngFor="let item of items">
           <a [routerLink]="item.routerLink" routerLinkActive='active-item'>{{item.name}}</a>
