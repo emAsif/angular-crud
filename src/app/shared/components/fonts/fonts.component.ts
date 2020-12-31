@@ -10,7 +10,7 @@ export class FontsComponent implements OnInit {
   @Input() state; // current dom refrence id
 
   config = Config;
-
+  
   // loaded from config.ts file
   sizes = [this.config.fonts.fSmall, this.config.fonts.fMedium, this.config.fonts.fLarge];
 

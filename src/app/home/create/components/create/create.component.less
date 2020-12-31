@@ -5,7 +5,6 @@
   .container();
 
   & .child {
-    overflow-y: auto;
 
     .flex(@flex: column); // flex container
 
@@ -18,9 +17,9 @@
     & .s-size {
       .head-div;
 
-      // & h3 {
-      //   font-size: @font-size-h3;
-      // }
+      & h3 {
+        font-size: @font-size-h3;
+      }
     }
   }
 }
@@ -61,14 +60,11 @@ button {
 
 }
 
-.f-rem {
-  font-size: 1.2rem;
-}
-
 .f-error-display {
   .flex(@flex: column);
 }
 
+// media queries
 .main-header-query(@max-width: 700px);
 
 .form-media-query(@md-screen: @medium-screen);

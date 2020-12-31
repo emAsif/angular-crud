@@ -13,39 +13,50 @@
     <!-- <h4>{{config.message.viewsubHeading}}</h4> -->
     <small>
       <p>
-        This example demonstrates how to create a simple form layout his example demonstrates how to create a simple
-        form layout
-        his example demonstrates how to create a simple form layout his example demonstrates how to create a simple form
-        layout
+        {{config.message.viewsubHeading}}
       </p>
       <p>&nbsp;</p>
     </small>
-    <table role="table">
+    <div *ngIf="loading"  class="spinner"></div>
+    <table *ngIf = "!loading">
+      <thead>
+        <tr>
+          <th scope="col">{{config.message.createFirstName}}</th>
+          <th scope="col">{{config.message.createLastName}}</th>
+          <th scope="col">{{config.message.createEmail}}</th>
+          <th scope="col">{{config.message.createBirthday}}</th>
+          <th scope="col">{{config.message.createAdress}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of appUsers">
+          <td [attr.data-label]="config.message.createFirstName">{{user.firstName}}</td>
+          <td [attr.data-label]="config.message.createLastName">{{user.lastName}}</td>
+          <td [attr.data-label]="config.message.createEmail">{{user.id}}</td>
+          <td [attr.data-label]="config.message.createBirthday">03/01/2016 - 03/31/2016</td>
+          <td [attr.data-label]="config.message.createAdress">03/01/2016 - 03/31/2016</td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- <table role="table" *ngIf = "!loading">
       <thead role="rowgroup">
         <tr role="row">
           <th role="columnheader">{{config.message.createFirstName}}</th>
           <th role="columnheader">{{config.message.createLastName}}</th>
           <th role="columnheader">{{config.message.createEmail}}</th>
           <th role="columnheader">{{config.message.createBirthday}}</th>
-          <th role="columnheader">Gender</th>
+          <th role="columnheader">{{config.message.createAdress}}</th>
         </tr>
       </thead>
-      <tbody role="rowgroup">
-        <tr role="row">
-          <td role="cell">James</td>
-          <td role="cell">Matman</td>
-          <td role="cell">Chief Sandwich Eater</td>
-          <td role="cell">Lettuce Green</td>
-          <td role="cell">Trek</td>
-        </tr>
-        <tr role="row">
-          <td role="cell">James</td>
-          <td role="cell">Matman</td>
-          <td role="cell">Chief Sandwich Eater</td>
-          <td role="cell">Lettuce Green</td>
-          <td role="cell">Trek</td>
+      <tbody role="rowgroup" >
+        <tr role="row" *ngFor="let user of users">
+          <td role="cell">asif amin sial</td>
+          <td role="cell">ameen sial</td>
+          <td role="cell">{{user.password}}</td>
+          <td role="cell">asifask@dfjkaa.cad</td>
+          <td role="cell">All the details of registered users. Also the new registered users has been listed.</td>
         </tr>
       </tbody>
-    </table>
+    </table> -->
   </div>
 </div>
