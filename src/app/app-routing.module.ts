@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules, PreloadingStrategy } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 import * as auth from './core/auth/index';
 
 

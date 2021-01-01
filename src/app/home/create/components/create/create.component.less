@@ -9,9 +9,9 @@
     .flex(@flex: column); // flex container
 
     .border(@border-color); // div border
-     
+
     .content-wrapper; // form size 
-    
+
     .f-rem; // font size
 
     & .s-size {
@@ -33,6 +33,7 @@
 
 }
 
+// to show errors verically
 .form-subGroup {
   flex-direction: column;
 }
@@ -65,6 +66,6 @@ button {
 }
 
 // media queries
-.main-header-query(@max-width: 700px);
+.main-header-query(@max-width: @small-screen);
 
 .form-media-query(@md-screen: @medium-screen);

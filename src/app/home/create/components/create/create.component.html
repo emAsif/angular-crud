@@ -14,16 +14,21 @@
 
         <small>
             <p>
-               {{config.message.createSubHeading}}
+                {{config.message.createSubHeading}}
             </p>
             <p>&nbsp;</p>
         </small>
-        
-        <hr>
 
+        <hr>
+        <div *ngIf="info != ''" 
+        [ngClass]="{
+            'success-div':errorCheck === false,
+            'error-div':errorCheck === true
+          }" >{{errorCheck ? error : info}}</div>
+        <!-- main form -->
         <form [formGroup]="rf" (ngSubmit)="onSubmit(rf.value)">
-            <div *ngIf="loading"  class="spinner"></div>
-            
+            <div *ngIf="loading" class="spinner"></div>
+
             <div *ngIf="error" class="error-notify">{{error}}</div>
 
             <div class="form-group">
@@ -41,44 +46,41 @@
                         required />
                     <!-- errors generic compoenent -->
                     <app-show-errors [ctrl]="rf.get('lastName')"></app-show-errors>
-                <!-- </div> -->
-            </div>
+                </div>
             </div>
 
             <div class="form-group">
-                <label>{{config.message.createEmail}}:<span>*</span></label>
+                <label>{{config.message.createUsername}}:<span>*</span></label>
                 <div class="form-subGroup" style="flex-grow: 5">
-                    <input placeholder="Enter Email-ID" type="email" formControlName="email" class="input-control"
+                    <input placeholder="Enter UserName" type="text" formControlName="username" class="input-control"
                         required />
                     <!-- errors generic compoenent -->
-                    <app-show-errors [ctrl]="rf.get('email')"></app-show-errors>
+                    <app-show-errors [ctrl]="rf.get('username')"></app-show-errors>
                 </div>
 
                 <label class="right-inline">{{config.message.createBirthday}}:<span>*</span></label>
                 <div class="form-subGroup" style="flex-grow: 5">
-                    <input placeholder="Enter Email-ID" type="date" formControlName="birthday" class="input-control"
-                        required />
+                    <input type="date" formControlName="birthday" class="input-control" required />
                     <!-- errors generic compoenent -->
                     <app-show-errors [ctrl]="rf.get('birthday')"></app-show-errors>
-                <!-- </div> -->
-            </div>
+                </div>
             </div>
 
-        
+
             <div class="form-group">
                 <label style="flex-grow: 0">{{config.message.createAdress}}</label>
                 <!-- address is optional -->
                 <div class="form-subGroup" style="flex-grow: 10">
-                <textarea placeholder="Address is optional" formControlName="address" class="input-control"></textarea>
-                    </div>
-        </div>
+                    <textarea placeholder="Address is optional" formControlName="address"
+                        class="input-control"></textarea>
+                </div>
+            </div>
 
             <div class="form-group">
                 <label>&nbsp;</label>
-                <button type="submit" 
-                [ngStyle]="{'cursor':!rf.valid ? 'not-allowed' : 'pointer' }"
-                >{{loading ? 'Submiting' : 'Submit'}}</button>
-                <button>Reset</button>
+                <button type="submit" [ngStyle]="{'cursor':!rf.valid ? 'not-allowed' : 'pointer' }">{{loading ?
+                    'Submiting' : 'Submit'}}</button>
+                <button (click)="resetForm($event)">Reset</button>
             </div>
         </form>
     </div>

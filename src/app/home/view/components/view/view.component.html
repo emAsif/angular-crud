@@ -1,3 +1,4 @@
+<!-- start view component -->
 <div class="parent">
   <div class="child" id="refId">
 
@@ -17,46 +18,30 @@
       </p>
       <p>&nbsp;</p>
     </small>
+    <!-- spinner -->
     <div *ngIf="loading"  class="spinner"></div>
+    <!-- table -->
     <table *ngIf = "!loading">
       <thead>
         <tr>
           <th scope="col">{{config.message.createFirstName}}</th>
           <th scope="col">{{config.message.createLastName}}</th>
-          <th scope="col">{{config.message.createEmail}}</th>
+          <th scope="col">{{config.message.createUsername}}</th>
           <th scope="col">{{config.message.createBirthday}}</th>
           <th scope="col">{{config.message.createAdress}}</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of appUsers">
+        <tr *ngFor="let user of currentUsers">
           <td [attr.data-label]="config.message.createFirstName">{{user.firstName}}</td>
           <td [attr.data-label]="config.message.createLastName">{{user.lastName}}</td>
-          <td [attr.data-label]="config.message.createEmail">{{user.id}}</td>
-          <td [attr.data-label]="config.message.createBirthday">03/01/2016 - 03/31/2016</td>
-          <td [attr.data-label]="config.message.createAdress">03/01/2016 - 03/31/2016</td>
+          <td [attr.data-label]="config.message.createUsername">{{user.username}}</td>
+          <td [attr.data-label]="config.message.createBirthday">{{user.birthday | date}}</td>
+          <td [attr.data-label]="config.message.createAdress">{{user.address}}</td>
         </tr>
       </tbody>
     </table>
-    <!-- <table role="table" *ngIf = "!loading">
-      <thead role="rowgroup">
-        <tr role="row">
-          <th role="columnheader">{{config.message.createFirstName}}</th>
-          <th role="columnheader">{{config.message.createLastName}}</th>
-          <th role="columnheader">{{config.message.createEmail}}</th>
-          <th role="columnheader">{{config.message.createBirthday}}</th>
-          <th role="columnheader">{{config.message.createAdress}}</th>
-        </tr>
-      </thead>
-      <tbody role="rowgroup" >
-        <tr role="row" *ngFor="let user of users">
-          <td role="cell">asif amin sial</td>
-          <td role="cell">ameen sial</td>
-          <td role="cell">{{user.password}}</td>
-          <td role="cell">asifask@dfjkaa.cad</td>
-          <td role="cell">All the details of registered users. Also the new registered users has been listed.</td>
-        </tr>
-      </tbody>
-    </table> -->
+    <!-- end table -->
   </div>
 </div>
+<!-- end view component -->

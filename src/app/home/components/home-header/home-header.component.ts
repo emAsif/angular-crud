@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { User } from '../../../models/user';
+import { User } from 'src/app/core/auth/user.model';
 
 @Component({
   selector: 'home-header',

@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { AuthenticationService } from '../../../core/services';
-import { UsernameValidators } from '../../username.validators';
+import { UsernameValidators } from '../../../shared/validators/username.validators';
 import { Config } from '../../../shared/config/app.config'
 
 @Component({
@@ -12,65 +12,55 @@ import { Config } from '../../../shared/config/app.config'
   styleUrls: ['./login.component.less']
 })
 export class LoginComponent implements OnInit {
+  config = Config;
   loginForm: FormGroup;
-  loginHeading = Config.message.loginText;
+  
   loading = false;
-  // submitted = false;
-  returnUrl: string;
+  // returnUrl: string;
   error = '';
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
-  ) {
-    // redirect to home if already logged in
-    if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
-    }
-  }
+    private authService: AuthenticationService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       username: ['',
         [
           Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(20),
+          // Validators.minLength(4),
+          // Validators.maxLength(20),
           UsernameValidators.cannotContainSpace
         ]
       ],
       password: ['',
         [
           Validators.required,
-          Validators.minLength(4),
-          Validators.maxLength(10)
+          // Validators.minLength(4),
+          // Validators.maxLength(20)
         ]
       ]
     });
-
-    // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  // convenience getter for easy access to controls
-  // get username() { return this.loginForm.get('username'); }
-  // get password() { return this.loginForm.get('password'); }
-
   onSubmit() {
-    // this.submitted = true;
-
     // stop here if form is invalid
     if (!this.loginForm.valid) {
       return;
     }
+
+    const username = this.loginForm.controls.username.value;
+    const password = this.loginForm.controls.password.value;
+
+    this.error = '';
     this.loading = true;
-    this.authenticationService.login(this.loginForm.controls.username.value, this.loginForm.controls.password.value)
-      .pipe(first())
+    this.authService.login(username, password)
       .subscribe(
         data => {
-          this.router.navigate([this.returnUrl]);
+          this.router.navigate(['/home/start']);
         },
         error => {
           this.error = error;

@@ -1,33 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { AuthenticationService } from 'src/app/core/services';
-import { User } from 'src/app/models/user';
+import { User } from 'src/app/core/auth/user.model';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.less']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
+  private userSub: Subscription;
+
   currentUser: User;
- 
   isToggled: boolean= true;
 
   constructor(
-    private router: Router,
-    private authenticationService: AuthenticationService
-  ) { }
+    private authService: AuthenticationService
+    ) { }
 
   ngOnInit(): void {
-    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+    // subscription to current user.
+    this.userSub = this.authService.user.subscribe(user => this.currentUser = user);
   }
 
-  logout(): void {
-    this.authenticationService.logout();
-    this.router.navigate(['/login']);
-  }
-
+  // side nav toggle
   toggled(isToggled: boolean): void {
     this.isToggled = isToggled;
+  }
+
+  ngOnDestroy() {
+    this.userSub.unsubscribe();
   }
 }

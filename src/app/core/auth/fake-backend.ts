@@ -2,15 +2,18 @@
 import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
+import { NewUser } from 'src/app/models/newUser';
 
-import { UserService } from '../services';
-
+const users: Array<{ id: number; username: string; password: string; }> = [{ id: 1, username: 'akelius', password: 'akelius' }];
+const viewUser: NewUser[] = [
+    { firstName: 'Asif', lastName: 'Amin', username: 'asifamin', birthday: '07/13/2020', address: 'koblenz' },
+    { firstName: 'testUser', lastName: 'test', username: 'test123', birthday: '1/07/2019' }
+]
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
-    constructor(private readonly users: UserService){}
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         const { url, method, headers, body } = request;
-        const users = this.users.getAll();
+
         // wrap in delayed observable to simulate server api call
         return of(null)
             .pipe(mergeMap(handleRoute))
@@ -24,6 +27,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return authenticate();
                 case url.endsWith('/users') && method === 'GET':
                     return getUsers();
+                case url.endsWith('/create') && method === 'POST':
+                    return saveUsers();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
@@ -35,19 +40,22 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         function authenticate() {
             const { username, password } = body;
             const user = users.find(x => x.username === username && x.password === password);
-            if (!user) return error('Username or password is incorrect');
+            if (!user) return error('Username or Password is incorrect');
             return ok({
-                id: user.id,
+                localId: user.id,
                 username: user.username,
-                firstName: user.firstName,
-                lastName: user.lastName,
-                token: 'fake-jwt-token'
+                idToken: 'fake-jwt-token',
+                expiresIn: '1800', // token expire time in seconds(30 minutes)
             })
         }
 
         function getUsers() {
             if (!isLoggedIn()) return unauthorized();
-            return ok(users);
+            return ok(viewUser);
+        }
+        function saveUsers() {
+            if (!isLoggedIn()) return unauthorized();
+            return ok();
         }
 
         // helper functions

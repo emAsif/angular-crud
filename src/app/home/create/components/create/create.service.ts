@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from "@angular/core";
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/models/user';
+import { NewUser } from 'src/app/models/newUser';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,11 @@ export class CreateService {
 
   constructor(private readonly http: HttpClient) { }
 
-  create(values): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}`, values);
+  create(values): Observable<NewUser> {
+    return this.http.post<NewUser>(`${this.apiUrl}`, values);
   }
+
+  // create(values): Observable<any> {
+  //   return this.http.post<any>(`${this.apiUrl}/create`, values);
+  // }
 }

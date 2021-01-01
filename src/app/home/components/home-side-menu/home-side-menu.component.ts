@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from 'src/app/core/auth/user.model';
+import { AuthenticationService } from 'src/app/core/services';
 import { Config } from '../../../shared/config/app.config'
 
 @Component({
@@ -12,16 +12,16 @@ import { Config } from '../../../shared/config/app.config'
 export class HomeSideMenuComponent implements OnInit {
   config = Config;
 
-  @Output() signOut = new EventEmitter<void>();
   @Input() isToggled: boolean; // side menu toggle
   @Input() currentUser: User; // current user
 
-  constructor() {}
+  constructor(private authenticationService: AuthenticationService) {}
 
   ngOnInit(): void {
   }
 
+  // application sign out
   logout(): void {
-    this.signOut.emit()
+    this.authenticationService.logout();
   }
 }

@@ -9,13 +9,11 @@ import * as shared from './components/index';
   declarations: [shared.components],
   imports: [
     CommonModule,
-    FormsModule,
     ReactiveFormsModule
   ],
   exports: [
     shared.components, 
     CommonModule, 
-    ReactiveFormsModule,
-    FormsModule]
+    ReactiveFormsModule]
 })
 export class SharedModule { }

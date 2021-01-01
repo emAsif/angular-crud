@@ -1,9 +1,8 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/core/services/user.service';
-import { CreateService } from 'src/app/home/create/components/create/create.service';
-import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
+import { NewUser } from 'src/app/models/newUser';
 import { Config } from '../../../../shared/config/app.config';
+import { ViewService } from './view.service';
 
 @Component({
   selector: 'app-view',
@@ -13,23 +12,23 @@ import { Config } from '../../../../shared/config/app.config';
 export class ViewComponent implements OnInit {
   config = Config;
   loading = false;
-  appUsers: any;
-  
+  currentUsers: NewUser[];
+
   cRef = 'refId'; // dom refrence id for fonts resizing.
 
-  constructor(private readonly users: UserService) { }
+  constructor(private readonly viewService: ViewService, private users: UserService) { }
 
   ngOnInit(): void {
-      this.loading = true;
-      this.appUsers = this.users.getAll();
+
+    this.loading = true;
+    this.viewService.getAll().subscribe(data => {
+      this.currentUsers = data;
+      // adding new user from service to current users array emitted from the fake api.
+      if (!!this.users.newUser) {
+        this.currentUsers.unshift(this.users.newUser);
+      }
       this.loading = false;
-
-  //   this.http.get<User>('http://localhost:4000/users').subscribe(data => {  
-
-  //     this.users = data;
-  //     this.loading = false;
-  //   console.log(this.users)
-  // })
+    })
   }
 
 }

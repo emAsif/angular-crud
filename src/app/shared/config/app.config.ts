@@ -14,6 +14,8 @@ export const Config = {
   message: {
     // prefixed with components name
     loginText: 'Akelius Gmbh',
+    loginUsername: 'Username',
+    loginPassword: 'Password',
     startHeading: 'Welcome to the App',
     startSubHeading: 'NO third party tools has been used in the development of this demo application.',
     startText: 'All the required features has been implemented in this project. For more details look for the attached documentation.',
@@ -27,7 +29,7 @@ export const Config = {
     createSubHeading: 'Please Fill All the required fields to register a new user.',
     createFirstName: 'First Name',
     createLastName: 'Last Name',
-    createEmail: 'Email-ID',
+    createUsername: 'Username',
     createBirthday: 'Birthday',
     createAdress: 'Address',
     sideNavHome: 'Home',
