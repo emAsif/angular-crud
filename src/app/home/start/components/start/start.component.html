@@ -1,5 +1,5 @@
 <div class="parent">
-  <div class="child" id="sFont">
+  <div class="child" id="sFont" #font>
     <div class="loader"></div>
     <div class="s-size">
       <div class="column">
@@ -7,7 +7,7 @@
       </div>
 
       <div class="column col-1">
-        <app-fonts [state]="cId"></app-fonts>
+        <app-fonts [state]="font.id"></app-fonts>
       </div>
     </div>
 

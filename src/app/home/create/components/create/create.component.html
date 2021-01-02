@@ -1,6 +1,6 @@
 <!--start log in form -->
 <div class="parent">
-    <div class="child" id="cFont">
+    <div class="child" id="cFont" #font>
         <div class="s-size">
             <div class="column">
                 <h3>{{config.createHeading}}</h3>
@@ -8,7 +8,7 @@
 
             <div class="fonts-btn column col-1">
                 <!-- fonts shared compoenent -->
-                <app-fonts [state]="cRef"></app-fonts>
+                <app-fonts [state]="font.id"></app-fonts>
             </div>
         </div>
 

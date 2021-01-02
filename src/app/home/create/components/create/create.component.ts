@@ -22,8 +22,6 @@ export class CreateComponent implements OnInit {
   // displaying messages based on current status- by default info message will be loaded.
   msg: { status: string; message: string } = { status: 'info', message: this.config.creatInfoMsg };
 
-  cRef = 'cFont' // DO NOT CHANGE - this as it is refrence for the fontsize updates
-
   constructor(
     private readonly _router: Router,
     private readonly userService: UserService,

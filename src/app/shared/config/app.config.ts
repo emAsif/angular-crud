@@ -23,8 +23,8 @@ export const Config = {
     viewAddress: 'Address',
     createHeading: 'Create New User',
     createSubHeading: 'In this section, a new user can be created by providing the credentials.' +
-      'end error validation User can view the info, success, or connection failure errors based on the form submission state. Also ' + 
-      'the front has been implemented. User can also reset the form data using reset button. On successful submission user will be ' +
+      'User can view the three types of messages: info, success, or connection failure messages based on the form submission state. Also ' + 
+      'the front end validation has been implemented. On successful submission user will be ' +
       'redirected to view page.',
     createFirstName: 'First Name',
     createLastName: 'Last Name',

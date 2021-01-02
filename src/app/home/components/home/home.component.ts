@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   private userSub: Subscription; // current user subscricption
 
   currentUser: User;
-  isToggled: boolean = true;
+  isToggled: boolean = false; // hide side nav by default
 
   constructor(private readonly authService: AuthenticationService) { }
 

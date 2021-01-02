@@ -14,8 +14,6 @@ export class ViewComponent implements OnInit {
   loading = false;
   currentUsers: NewUser[];
 
-  cRef = 'vFont'; // dom refrence id for fonts resizing.
-
   constructor(
     private readonly viewService: ViewService,
     private readonly users: UserService) { }

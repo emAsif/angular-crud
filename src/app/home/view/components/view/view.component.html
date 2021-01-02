@@ -1,6 +1,6 @@
 <!-- start view component -->
 <div class="parent">
-  <div class="child" id="vFont">
+  <div class="child" id="vFont" #font>
 
     <div class="s-size">
       <div class="column">
@@ -9,7 +9,7 @@
       </div>
 
       <div class="column col-1">
-        <app-fonts [state]="cRef"></app-fonts>
+        <app-fonts [state]="font.id"></app-fonts>
       </div>
     </div>
     

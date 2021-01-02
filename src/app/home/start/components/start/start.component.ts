@@ -8,8 +8,6 @@ import { Config } from '../../../../shared/config/app.config';
 })
 export class StartComponent implements OnInit {
   config = Config.message; // retrieving text for the component.
-  
-  cId = 'sFont'; // DO NOT CHANGE - this as it is refrence for the fontsize updates.
 
   constructor() { }
 
