@@ -1,8 +1,11 @@
-﻿// interface for new user
-export interface NewUser {
-    firstName: string;
-    lastName: string;
-    username: string;
-    birthday: string;
-    address?: string;
-}
+﻿export class NewUser {
+    constructor(
+      public id: number,
+      public firstName: string,
+      public lastName: string,
+      public username: string,
+      public birthday: Date,
+      public address?: string
+    ) {}
+
+  }

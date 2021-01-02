@@ -39,7 +39,7 @@
           <td [attr.data-label]="config.viewLastName">{{user.lastName}}</td>
           <td [attr.data-label]="config.viewUsername">{{user.username}}</td>
           <td [attr.data-label]="config.viewBirthday">{{user.birthday | date}}</td>
-          <td [attr.data-label]="config.viewAddress">{{user.address}}</td>
+          <td [attr.data-label]="config.viewAddress">{{user.address != '' ? user.address : 'N/A'}}</td>
         </tr>
       </tbody>
     </table>

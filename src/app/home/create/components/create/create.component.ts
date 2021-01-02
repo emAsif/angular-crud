@@ -6,6 +6,7 @@ import { UsernameValidators } from 'src/app/shared/validators/username.validator
 import { CreateService } from './create.service';
 import { NewUser } from 'src/app/models/newUser';
 import { UserService } from 'src/app/services/user.service';
+import { User } from 'src/app/core/auth/user.model';
 
 @Component({
   selector: 'app-create',
@@ -83,8 +84,9 @@ export class CreateComponent implements OnInit {
 
     this.loading = true; // start spinner
     this.createService.create(data).subscribe(r => { // not using fake api response to avoid unexpected error
-
-      this.userService.newUser = data; // saving new user to the service
+      // saving new user obj to the service
+      this.userService.newUser = new NewUser(r.id, r.firstName, r.lastName, r.username, r.birthday, r.address);
+      console.log(this.userService.newUser);
 
       this.redirect(); // navigate to view page
       this.rf.reset(); // reseting form fields

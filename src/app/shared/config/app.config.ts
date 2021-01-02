@@ -22,8 +22,7 @@ export const Config = {
     viewBirthday: 'Birthday',
     viewAddress: 'Address',
     createHeading: 'Create New User',
-    createSubHeading: 'In this section, a new user can be created by providing the credentials.' +
-      'User can view the three types of messages: info, success, or connection failure messages based on the form submission state. Also ' + 
+    createSubHeading: 'User can view the three types of messages: info, success, or connection failure messages based on the form submission state. Also ' + 
       'the front end validation has been implemented. On successful submission user will be ' +
       'redirected to view page.',
     createFirstName: 'First Name',
@@ -32,7 +31,7 @@ export const Config = {
     createBirthday: 'Birthday',
     createAdress: 'Address',
     creatInfoMsg: 'Please fill all the required fields to create a new user.',
-    createSuccessMsg: 'successfully created new user. You will be redirect to view user page in few seconds',
+    createSuccessMsg: 'Successfully created new user. You will be redirect to view user page in few seconds',
     creatCusErr: 'Please check you internet connection.',
     sideNavHome: 'Home',
     sideNavView: 'View',

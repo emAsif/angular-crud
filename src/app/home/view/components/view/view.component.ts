@@ -24,10 +24,12 @@ export class ViewComponent implements OnInit {
     
     this.viewService.getAll().subscribe(data => {
       this.currentUsers = data;
+      
       // adding new user from service to current users array emitted from the fake api.
       if (!!this.users.newUser) {
         this.currentUsers.unshift(this.users.newUser); // unshift data to current user array.
-        this.users.newUser = null; // trash the service user data to avoid repetition.
+        
+        this.users.newUser = null; // trash the user service data to avoid repetition.
       }
       this.loading = false; // stop spinner
     })
