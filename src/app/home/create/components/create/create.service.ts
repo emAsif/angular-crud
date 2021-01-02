@@ -15,8 +15,4 @@ export class CreateService {
   create(values): Observable<NewUser> {
     return this.http.post<NewUser>(`${this.apiUrl}`, values);
   }
-
-  // create(values): Observable<any> {
-  //   return this.http.post<any>(`${this.apiUrl}/create`, values);
-  // }
 }

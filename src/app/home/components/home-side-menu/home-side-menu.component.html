@@ -1,25 +1,23 @@
-  <!-- start side nav component -->
-  <div class="sidebar" [ngClass]="{'open' : isToggled}" >
-    <nav>
-      <h3 class="sidNav-heading">{{config.message.loginText}}</h3>
-      <ul>
-        <!-- <li *ngFor="let item of items">
-          <a [routerLink]="item.routerLink" routerLinkActive='active-item'>{{item.name}}</a>
-        </li> -->
-        <li>
-          <a routerLink="/home/start" routerLinkActive='active-item'>{{config.message.sideNavHome}}</a>
-        </li>
-        <li>
-        <a routerLink="/home/view" routerLinkActive='active-item'>{{config.message.sideNavView}}</a>
+<!-- start side nav component -->
+<div class="sidebar" [ngClass]="{'open' : isToggled}">
+  <nav>
+    <h3 class="sidNav-heading">{{config.loginText}}</h3>
+    <ul>
+      <li>
+        <a routerLink="/home/start" routerLinkActive='active-item'>{{config.sideNavHome}}</a>
       </li>
-        <li>
-          <a [routerLink]="['/home/create', currentUser.id]" routerLinkActive='active-item'>{{config.message.sideNavCreate}}</a>
-        </li>
-        <br>
-        <li>
-          <a routerLink="#" (click)="logout()">{{config.message.signOut}}</a>
-        </li>
-      </ul>
-    </nav>
-  </div>
+      <li>
+        <a routerLink="/home/view" routerLinkActive='active-item'>{{config.sideNavView}}</a>
+      </li>
+      <li>
+        <a [routerLink]="['/home/create', currentUser.id]"
+          routerLinkActive='active-item'>{{config.sideNavCreate}}</a>
+      </li>
+      <br>
+      <li>
+        <a routerLink="#" (click)="logout()">{{config.signOut}}</a>
+      </li>
+    </ul>
+  </nav>
+</div>
 <!-- end side nav component -->

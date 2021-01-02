@@ -10,24 +10,28 @@ import { ViewService } from './view.service';
   styleUrls: ['./view.component.less']
 })
 export class ViewComponent implements OnInit {
-  config = Config;
+  config = Config.message; // config file loading text for component
   loading = false;
   currentUsers: NewUser[];
 
-  cRef = 'refId'; // dom refrence id for fonts resizing.
+  cRef = 'vFont'; // dom refrence id for fonts resizing.
 
-  constructor(private readonly viewService: ViewService, private users: UserService) { }
+  constructor(
+    private readonly viewService: ViewService,
+    private readonly users: UserService) { }
 
   ngOnInit(): void {
 
-    this.loading = true;
+    this.loading = true; // spinner
+    
     this.viewService.getAll().subscribe(data => {
       this.currentUsers = data;
       // adding new user from service to current users array emitted from the fake api.
       if (!!this.users.newUser) {
-        this.currentUsers.unshift(this.users.newUser);
+        this.currentUsers.unshift(this.users.newUser); // unshift data to current user array.
+        this.users.newUser = null; // trash the service user data to avoid repetition.
       }
-      this.loading = false;
+      this.loading = false; // stop spinner
     })
   }
 

@@ -14,30 +14,27 @@ import { UserService } from 'src/app/services/user.service';
 })
 
 export class CreateComponent implements OnInit {
-  config = Config;
+  config = Config.message; // config file loading text for the component
 
   rf: FormGroup;
-  loading = false;
- 
-  info = '';
-  error = '';
-  errors = { info: 'active', success: 'success', errror: 'pending'}
-  errorCheck = false;
-  // refrence for child component
-  cRef = 'cFont'
+  loading: boolean = false;
+
+  // displaying messages based on current status- by default info message will be loaded.
+  msg: { status: string; message: string } = { status: 'info', message: this.config.creatInfoMsg };
+
+  cRef = 'cFont' // DO NOT CHANGE - this as it is refrence for the fontsize updates
 
   constructor(
-    private _router: Router,
-    private userService: UserService,
-    private createService: CreateService,
-    private formBuilder: FormBuilder) { }
+    private readonly _router: Router,
+    private readonly userService: UserService,
+    private readonly createService: CreateService,
+    private readonly formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.info = 'Bitte prüfen Sie Ihre Stammdaten.';
+    // form builder
     this.buidForm();
   }
 
-  // form builder
   buidForm(): void {
     this.rf = this.formBuilder.group({
       firstName: ['',
@@ -59,7 +56,7 @@ export class CreateComponent implements OnInit {
           Validators.required,
           Validators.minLength(4),
           Validators.maxLength(20),
-          UsernameValidators.cannotContainSpace
+          UsernameValidators.cannotContainSpace // custom validator for space
         ]
       ],
       birthday: ['',
@@ -67,42 +64,45 @@ export class CreateComponent implements OnInit {
           Validators.required
         ]
       ],
-      address: ['']
+      address: [''] // address is optional.
     });
   }
 
   // navigate to view page
   redirect(): void {
+    // five seconds timeout
     setTimeout(() => {
       this._router.navigateByUrl('/home/view');
-    }, 2000);
+    }, 5000);
   }
 
+  // submit form 
   onSubmit(data: NewUser): void {
-    
     // stop invalid form submission.
     if (!this.rf.valid) {
       return;
     }
 
-    this.loading = true;
+    this.loading = true; // start spinner
     this.createService.create(data).subscribe(r => { // not using fake api response to avoid unexpected error
-      
+
       this.userService.newUser = data; // saving new user to the service
-      this.loading = false
 
       this.redirect(); // navigate to view page
       this.rf.reset(); // reseting form fields
-      this.info = 'Daten erfolgreich aktualisiert.';
-      this.error = '';
-      this.errorCheck = false;
-    }, 
+
+      this.msg.status = 'success';
+      this.msg.message = this.config.createSuccessMsg;
+
+      this.loading = false // stop spinner
+
+    },
       error => {
         this.loading = false;
-        // this.info = '';
-        this.error = error;
-        this.errorCheck = true;
-        console.log('er', error)
+
+        this.rf.reset();
+        this.msg.status = 'error';
+        this.msg.message = error + this.config.creatCusErr; // concat custom msg with default msg receiving.
       }
     )
   }

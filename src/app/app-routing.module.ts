@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import * as auth from './core/auth/index';
 
 
@@ -23,8 +23,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  // preloadingStrategy used for module rendering optimization
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy : PreloadAllModules })
+  imports: [RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
 })

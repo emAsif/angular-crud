@@ -9,10 +9,10 @@ import { Config } from '../../config/app.config'
 export class FontsComponent implements OnInit {
   @Input() state; // current dom refrence id
 
-  config = Config;
-  
+  config = Config.fonts;
+
   // loaded from config.ts file
-  sizes = [this.config.fonts.fSmall, this.config.fonts.fMedium, this.config.fonts.fLarge];
+  sizes = [this.config.fSmall, this.config.fMedium, this.config.fLarge];
 
   constructor() { }
 
@@ -21,16 +21,16 @@ export class FontsComponent implements OnInit {
 
   fontResize(value: string): void {
     switch (value) {
-      case this.config.fonts.fSmall:
-        document.getElementById(this.state).style.fontSize = this.config.fonts.small;
+      case this.config.fSmall:
+        document.getElementById(this.state).style.fontSize = this.config.small;
         break;
 
-      case this.config.fonts.fMedium:
-        document.getElementById(this.state).style.fontSize = this.config.fonts.medium;
+      case this.config.fMedium:
+        document.getElementById(this.state).style.fontSize = this.config.medium;
         break;
 
-      case this.config.fonts.fLarge:
-        document.getElementById(this.state).style.fontSize = this.config.fonts.large;
+      case this.config.fLarge:
+        document.getElementById(this.state).style.fontSize = this.config.large;
         break
 
       default:

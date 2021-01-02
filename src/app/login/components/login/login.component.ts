@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { first } from 'rxjs/operators';
+import { Router } from '@angular/router';
 import { AuthenticationService } from '../../../core/services';
 import { UsernameValidators } from '../../../shared/validators/username.validators';
 import { Config } from '../../../shared/config/app.config'
@@ -12,22 +11,26 @@ import { Config } from '../../../shared/config/app.config'
   styleUrls: ['./login.component.less']
 })
 export class LoginComponent implements OnInit {
-  config = Config;
+  config = Config.message;
   loginForm: FormGroup;
-  
+
   loading = false;
   // returnUrl: string;
-  error = '';
+  error: boolean;
+  msg: string = this.config.loginInfoMsg;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private route: ActivatedRoute,
+    private fb: FormBuilder,
     private router: Router,
     private authService: AuthenticationService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.formBuilder.group({
+    this.formBuilder();
+  }
+  // form builder
+  formBuilder(): void {
+    this.loginForm = this.fb.group({
       username: ['',
         [
           Validators.required,
@@ -52,19 +55,24 @@ export class LoginComponent implements OnInit {
       return;
     }
 
+    // accessing input form values
     const username = this.loginForm.controls.username.value;
     const password = this.loginForm.controls.password.value;
 
-    this.error = '';
-    this.loading = true;
+    // reseting the info message incase of retrying
+    this.error = false;
+    this.msg = this.config.loginInfoMsg;
+
+    this.loading = true; // start spinner
     this.authService.login(username, password)
       .subscribe(
         data => {
-          this.router.navigate(['/home/start']);
+          this.router.navigate(['/home/start']); // rediret to landing page
         },
-        error => {
-          this.error = error;
-          this.loading = false;
+        errMsg => {
+          this.error = true; // to display the error msg
+          this.msg = errMsg;
+          this.loading = false; // end spinner
         });
   }
 

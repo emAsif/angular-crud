@@ -1,43 +1,45 @@
 <!-- start view component -->
 <div class="parent">
-  <div class="child" id="refId">
+  <div class="child" id="vFont">
 
     <div class="s-size">
       <div class="column">
-        <h3>{{config.message.viewHeading}}</h3>
+        <!-- heading text -->
+        <h3>{{config.viewHeading}}</h3>
       </div>
 
       <div class="column col-1">
         <app-fonts [state]="cRef"></app-fonts>
       </div>
     </div>
-    <!-- <h4>{{config.message.viewsubHeading}}</h4> -->
+    
     <small>
       <p>
-        {{config.message.viewsubHeading}}
+        <!-- paragraph text -->
+        {{config.viewsubHeading}}
       </p>
       <p>&nbsp;</p>
     </small>
     <!-- spinner -->
-    <div *ngIf="loading"  class="spinner"></div>
+    <div *ngIf="loading" class="loader"></div>
     <!-- table -->
-    <table *ngIf = "!loading">
+    <table *ngIf="!loading">
       <thead>
         <tr>
-          <th scope="col">{{config.message.createFirstName}}</th>
-          <th scope="col">{{config.message.createLastName}}</th>
-          <th scope="col">{{config.message.createUsername}}</th>
-          <th scope="col">{{config.message.createBirthday}}</th>
-          <th scope="col">{{config.message.createAdress}}</th>
+          <th scope="col">{{config.viewFirstName}}</th>
+          <th scope="col">{{config.viewLastName}}</th>
+          <th scope="col">{{config.viewUsername}}</th>
+          <th scope="col">{{config.viewBirthday}}</th>
+          <th scope="col">{{config.viewAddress}}</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let user of currentUsers">
-          <td [attr.data-label]="config.message.createFirstName">{{user.firstName}}</td>
-          <td [attr.data-label]="config.message.createLastName">{{user.lastName}}</td>
-          <td [attr.data-label]="config.message.createUsername">{{user.username}}</td>
-          <td [attr.data-label]="config.message.createBirthday">{{user.birthday | date}}</td>
-          <td [attr.data-label]="config.message.createAdress">{{user.address}}</td>
+          <td [attr.data-label]="config.viewFirstName">{{user.firstName}}</td>
+          <td [attr.data-label]="config.viewLastName">{{user.lastName}}</td>
+          <td [attr.data-label]="config.viewUsername">{{user.username}}</td>
+          <td [attr.data-label]="config.viewBirthday">{{user.birthday | date}}</td>
+          <td [attr.data-label]="config.viewAddress">{{user.address}}</td>
         </tr>
       </tbody>
     </table>

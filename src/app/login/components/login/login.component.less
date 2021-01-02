@@ -5,10 +5,11 @@
   .page-center(@bg-color: @login-background);
 }
 
+// form container
 .form-s {
   background-color: @login-div-background;
   width: 320px;
-  height: 320px;
+  height: 340px;
   padding: 12px 6px;
 }
 
@@ -20,7 +21,7 @@ form {
   .flex(@flex: column);
 }
 
-.h-div{
+.h-div {
   padding: 12px 6px;
 }
 
@@ -29,6 +30,10 @@ form {
   justify-content: center;
   margin-bottom: 10px;
   .flex(@flex: column);
+}
+
+.loader {
+  .spinner(@top: 46%, @left: 48%);
 }
 
 button {

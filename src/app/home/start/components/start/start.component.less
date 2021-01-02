@@ -1,4 +1,4 @@
-@import '../../../../../styles/mixins/common.less';
+@import '../../../../../styles/modules/common.less';
 
 .parent {
   
@@ -11,7 +11,11 @@
     .border(@border-color); // div border
 
     .f-rem; // font size
-
+    
+    h4 {
+      font-size: @font-size-h4;
+    }
+    
     & .s-size {
       .head-div;
 
@@ -19,12 +23,9 @@
         font-size: @font-size-h3;
       }
     }
-
-    h4 {
-      font-size: @font-size-h4;
-    }
   }
 
 }
+// main container query
+.container-query(@max-width: @small-screen);
 
-.main-header-query(@max-width: 700px);

@@ -3,7 +3,7 @@
     <div class="child" id="cFont">
         <div class="s-size">
             <div class="column">
-                <h3>{{config.message.createHeading}}</h3>
+                <h3>{{config.createHeading}}</h3>
             </div>
 
             <div class="fonts-btn column col-1">
@@ -14,25 +14,28 @@
 
         <small>
             <p>
-                {{config.message.createSubHeading}}
+                {{config.createSubHeading}}
             </p>
             <p>&nbsp;</p>
         </small>
 
         <hr>
-        <div *ngIf="info != ''" 
-        [ngClass]="{
-            'success-div':errorCheck === false,
-            'error-div':errorCheck === true
-          }" >{{errorCheck ? error : info}}</div>
+        <!-- alert messages -->
+        <div *ngIf="msg.status != ''" [ngClass]="{
+            'notify-div':msg.status === 'info',
+            'success-div':msg.status === 'success',
+            'error-div':msg.status === 'error'
+          }">
+            {{msg.message}}
+        </div>
         <!-- main form -->
         <form [formGroup]="rf" (ngSubmit)="onSubmit(rf.value)">
-            <div *ngIf="loading" class="spinner"></div>
+            <!-- spinner -->
 
-            <div *ngIf="error" class="error-notify">{{error}}</div>
+            <div *ngIf="loading" class="loader"></div>
 
             <div class="form-group">
-                <label>{{config.message.createFirstName}}:<span>*</span></label>
+                <label>{{config.createFirstName}}:<span>*</span></label>
                 <div class="form-subGroup" style="flex-grow: 5">
                     <input placeholder="Enter firstName" type="text" formControlName="firstName" class="input-control"
                         required />
@@ -40,7 +43,7 @@
                     <app-show-errors [ctrl]="rf.get('firstName')"></app-show-errors>
                 </div>
 
-                <label class="right-inline">{{config.message.createLastName}}:<span>*</span></label>
+                <label class="right-inline">{{config.createLastName}}:<span>*</span></label>
                 <div class="form-subGroup" style="flex-grow: 5">
                     <input placeholder="Enter lastName" type="text" formControlName="lastName" class="input-control"
                         required />
@@ -50,7 +53,7 @@
             </div>
 
             <div class="form-group">
-                <label>{{config.message.createUsername}}:<span>*</span></label>
+                <label>{{config.createUsername}}:<span>*</span></label>
                 <div class="form-subGroup" style="flex-grow: 5">
                     <input placeholder="Enter UserName" type="text" formControlName="username" class="input-control"
                         required />
@@ -58,7 +61,7 @@
                     <app-show-errors [ctrl]="rf.get('username')"></app-show-errors>
                 </div>
 
-                <label class="right-inline">{{config.message.createBirthday}}:<span>*</span></label>
+                <label class="right-inline">{{config.createBirthday}}:<span>*</span></label>
                 <div class="form-subGroup" style="flex-grow: 5">
                     <input type="date" formControlName="birthday" class="input-control" required />
                     <!-- errors generic compoenent -->
@@ -68,7 +71,7 @@
 
 
             <div class="form-group">
-                <label style="flex-grow: 0">{{config.message.createAdress}}</label>
+                <label style="flex-grow: 0">{{config.createAdress}}</label>
                 <!-- address is optional -->
                 <div class="form-subGroup" style="flex-grow: 10">
                     <textarea placeholder="Address is optional" formControlName="address"
@@ -78,8 +81,9 @@
 
             <div class="form-group">
                 <label>&nbsp;</label>
-                <button type="submit" [ngStyle]="{'cursor':!rf.valid ? 'not-allowed' : 'pointer' }">{{loading ?
-                    'Submiting' : 'Submit'}}</button>
+                <button type="submit" [ngStyle]="{'cursor':!rf.valid ? 'not-allowed' : 'pointer' }">
+                    {{loading ? 'Submiting' : 'Submit'}}</button>
+
                 <button (click)="resetForm($event)">Reset</button>
             </div>
         </form>

@@ -1,4 +1,4 @@
-@import '../../../../styles/mixins/common.less';
+@import '../../../../styles/modules/common.less';
 
 .sidebar {
     // height: 100%;
@@ -7,7 +7,7 @@
     background-color: @sidenav-color;
     overflow-x: hidden;
 
-    font-size: 1.1rem;
+    .f-rem;
 
     &:not(.cover) {
         width: 0;
@@ -69,10 +69,6 @@ nav {
     }
 }
 
-.f-rem {
-    font-size: 1.3rem;
-  }
-
 .sidNav-heading {
     color: @color-secondary;
     margin-bottom: 34px;
@@ -88,6 +84,9 @@ nav {
                 nav ul li a {
                     font-size: 1rem; 
                     padding: 6px 20px;
+                }
+                h3 {
+                    font-size: 1em;
                 }
             }
         }

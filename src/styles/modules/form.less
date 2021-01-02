@@ -51,8 +51,9 @@ form input, textarea {
 }
 // on error
 .error-div {
-    color: @error-font-color;
-    padding: 8px 4px;
+    // color: @error-font-color;
+    color: #fff;
+    padding: 8px 18px;
     margin: 8px 0px;
     // font-size: 0.9rem;
     border-radius: 1px;
@@ -61,7 +62,7 @@ form input, textarea {
 // on success
 .success-div {
     color: @success-font-color;
-    padding: 8px 4px;
+    padding: 8px 18px;
     margin: 8px 0px;
     border-radius: 1px;
     background-color: @success-background-color;
@@ -69,7 +70,7 @@ form input, textarea {
 // info
 .notify-div {
     color: @info-font-color;
-    padding: 6px 4px;
+    padding: 6px 18px;
     margin: 8px 0px;
     border-radius: 1px;
     background-color: @info-background-color;
@@ -104,62 +105,6 @@ form input, textarea {
         background: @input-focus-background;
     }
 }
-
-// .spinner {
-//     margin: auto;
-//     align-self: center;
-//     height: 20px;
-//     width: 20px;
-//     -webkit-animation: rotation .8s infinite linear;
-//     -moz-animation: rotation .8s infinite linear;
-//     -o-animation: rotation .8s infinite linear;
-//     animation: rotation .8s infinite linear;
-//     border-left: 6px solid @primary-color;
-//     border-right: 6px solid @primary-color;
-//     border-bottom: 6px solid @primary-color;
-//     border-top: 6px solid @color-secondary;
-//     border-radius: 100%;
-// }
-
-// @-webkit-keyframes rotation {
-//     from {
-//         -webkit-transform: rotate(0deg);
-//     }
-
-//     to {
-//         -webkit-transform: rotate(359deg);
-//     }
-// }
-
-// @-moz-keyframes rotation {
-//     from {
-//         -moz-transform: rotate(0deg);
-//     }
-
-//     to {
-//         -moz-transform: rotate(359deg);
-//     }
-// }
-
-// @-o-keyframes rotation {
-//     from {
-//         -o-transform: rotate(0deg);
-//     }
-
-//     to {
-//         -o-transform: rotate(359deg);
-//     }
-// }
-
-// @keyframes rotation {
-//     from {
-//         transform: rotate(0deg);
-//     }
-
-//     to {
-//         transform: rotate(359deg);
-//     }
-// }
 
 .form-media-query(@md-screen){
     @media only screen and (max-width: @md-screen) {

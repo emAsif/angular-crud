@@ -25,6 +25,7 @@ const routes: Routes = [{
         loadChildren: () => import('./create/create.module')
         .then(m => m.CreateModule) 
       },
+      // otherwise redirect to home 
       { 
         path: '**', 
         canActivate: [auth.AuthGuard],

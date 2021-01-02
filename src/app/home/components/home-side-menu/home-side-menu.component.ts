@@ -10,7 +10,7 @@ import { Config } from '../../../shared/config/app.config'
 })
 
 export class HomeSideMenuComponent implements OnInit {
-  config = Config;
+  config = Config.message; // config file loading text for component
 
   @Input() isToggled: boolean; // side menu toggle
   @Input() currentUser: User; // current user
@@ -18,6 +18,7 @@ export class HomeSideMenuComponent implements OnInit {
   constructor(private authenticationService: AuthenticationService) {}
 
   ngOnInit(): void {
+    
   }
 
   // application sign out

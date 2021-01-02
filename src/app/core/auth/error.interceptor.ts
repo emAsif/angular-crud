@@ -17,7 +17,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           }
 
           // prefix for errors
-          const error = ['API Error'];
+          const error = ['API Error '];
         
          console.log(err)
 

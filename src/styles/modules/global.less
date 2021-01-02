@@ -1,4 +1,4 @@
-@import "../mixins/typography.less";
+@import "../variables.less";
 
 * {
     padding: 0px;
@@ -7,20 +7,18 @@
 
 html,
 body {
+    font-family: 'open-sans';
+    font-size: @base-font-size;
     height: 100%;
     width: 100%;
 }
-
-html {
-    font-size: @base-font-size;
-}
-
+ // typography query
 @media (max-width: 900px) {
     html {
         font-size: @md-s-font-size;
     }
 }
-
+// typography query
 @media (max-width: 400px) {
     html {
         font-size: @sm-s-font-size;
@@ -29,6 +27,7 @@ html {
 
 /* Type will scale with document */
 h1 {
+    text-align: center;
     font-size: 3rem;
 }
 
@@ -46,27 +45,3 @@ h4 {
     text-align: center;
     font-size: 1rem;
 }
-
-
-// h1, h2, h3, h4 {
-//     padding: 8px 16px;
-// }
-
-/*Fluid typography mixin calls...*/
-// body {
-//     // font-size: 34px;
-// 	.fluid-typography(600px, 1600px, @base-font-size, 1em, 1.2em);
-//     font-family: sans-serif;
-// }
-
-// h1 {
-// 	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.6em, 3em);
-// }
-
-// h2 {
-// 	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.4em, 2.6em);
-// }
-
-// h3 {
-// 	.fluid-typography(@small-screen, @large-screen, @base-font-size, 1.2em, 2.2em);
-// }

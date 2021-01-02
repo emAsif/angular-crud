@@ -1,4 +1,5 @@
-﻿export interface NewUser {
+﻿// interface for new user
+export interface NewUser {
     firstName: string;
     lastName: string;
     username: string;

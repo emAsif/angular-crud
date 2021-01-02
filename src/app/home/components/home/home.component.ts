@@ -10,14 +10,12 @@ import { User } from 'src/app/core/auth/user.model';
   styleUrls: ['./home.component.less']
 })
 export class HomeComponent implements OnInit, OnDestroy {
-  private userSub: Subscription;
+  private userSub: Subscription; // current user subscricption
 
   currentUser: User;
-  isToggled: boolean= true;
+  isToggled: boolean = true;
 
-  constructor(
-    private authService: AuthenticationService
-    ) { }
+  constructor(private readonly authService: AuthenticationService) { }
 
   ngOnInit(): void {
     // subscription to current user.

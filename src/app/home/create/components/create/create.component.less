@@ -2,6 +2,7 @@
 
 
 .parent {
+
   .container();
 
   & .child {
@@ -65,7 +66,11 @@ button {
   .flex(@flex: column);
 }
 
+.loader {
+  .spinner(@top: 40%, @left: 55%);
+}
+
 // media queries
-.main-header-query(@max-width: @small-screen);
+.container-query(@max-width: @small-screen);
 
 .form-media-query(@md-screen: @medium-screen);

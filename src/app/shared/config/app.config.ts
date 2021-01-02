@@ -1,43 +1,45 @@
 export const Config = {
-  apiMethods: {
-    post: 'post',
-    put: 'put',
-    delete: 'delete',
-    get: 'get',
-    patch: 'patch'
-  },
+  apiMethods: {},
   apiStatusCode: {},
-  endpoint: {
-    apiUrl: '',
-    form: '/posts'
-  },
+  endpoint: {},
   message: {
     // prefixed with components name
     loginText: 'Akelius Gmbh',
     loginUsername: 'Username',
     loginPassword: 'Password',
+    loginInfoMsg: 'username: akelius -- password: akelius',
     startHeading: 'Welcome to the App',
-    startSubHeading: 'NO third party tools has been used in the development of this demo application.',
-    startText: 'All the required features has been implemented in this project. For more details look for the attached documentation.',
+    startSubHeading: 'User will automatically logout of the application after fifteen (15) Minutes.',
+    startText: 'All the required features has been implemented in this project. NO third party tools has been used in the development of this demo application.' +
+      'Incase of any issue please consult the provide doucmentation or contact the devleoper of the application. For more details look for ' +
+      'the attached documentation.',
     viewHeading: 'Registered Users',
-    viewsubHeading: 'All the details of registered users. Also the new registered users has been listed. A new user can be created from the create section. ',
+    viewsubHeading: 'Registered users can be viewed. previous registered users has been retrieved from ' +
+      'fake backend provider. Two users already exists. A new user can be created from Create section',
     viewFirstName: 'First Name',
     viewLastName: 'Last Name',
-    viewEmail: 'Email-ID',
+    viewUsername: 'Username',
     viewBirthday: 'Birthday',
+    viewAddress: 'Address',
     createHeading: 'Create New User',
-    createSubHeading: 'Please Fill All the required fields to register a new user.',
+    createSubHeading: 'In this section, a new user can be created by providing the credentials.' +
+      'end error validation User can view the info, success, or connection failure errors based on the form submission state. Also ' + 
+      'the front has been implemented. User can also reset the form data using reset button. On successful submission user will be ' +
+      'redirected to view page.',
     createFirstName: 'First Name',
     createLastName: 'Last Name',
     createUsername: 'Username',
     createBirthday: 'Birthday',
     createAdress: 'Address',
+    creatInfoMsg: 'Please fill all the required fields to create a new user.',
+    createSuccessMsg: 'successfully created new user. You will be redirect to view user page in few seconds',
+    creatCusErr: 'Please check you internet connection.',
     sideNavHome: 'Home',
     sideNavView: 'View',
     sideNavCreate: 'Create',
     signOut: 'Sign out',
     signIn: 'Sign In',
-    
+
   },
   // custome font sizes, new fonts can be added dynamically
   fonts: {

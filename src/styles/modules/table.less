@@ -1,0 +1,80 @@
+@import '../variables.less';
+// @import '../mixins/common.less';
+
+table {
+  border: 1px solid @box-border-color;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+
+  & caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+
+  & tr {
+    background-color: @tr-bg-color;
+    border: 1px solid @tr-border-color;
+    padding: .35em;
+  }
+  & th, td {
+    padding: .625em;
+    text-align: center;
+  }
+
+  & th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+}
+
+@media screen and (max-width: @small-screen) {
+  table {
+    border: 0;
+
+    & caption {
+      font-size: 1.3em;
+    }
+
+    & thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    & tr {
+      border-bottom: 3px solid @tr-bg-color;
+      display: block;
+      margin-bottom: .625em;
+    }
+    & td {
+      border-bottom: 1px solid @tr-bg-color;
+      display: block;
+      font-size: .8em;
+      text-align: right;
+    }
+
+    & td::before {
+ /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    }
+
+    & td:last-child {
+      border-bottom: 0;
+    }
+  }
+
+}

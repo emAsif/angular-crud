@@ -7,14 +7,14 @@ import { Config } from '../../../../shared/config/app.config';
   styleUrls: ['./start.component.less']
 })
 export class StartComponent implements OnInit {
-  config = Config;
+  config = Config.message; // retrieving text for the component.
   
-  cId = 'fontResize'; // do not change this as it is refrence for the fontsize updates
+  cId = 'sFont'; // DO NOT CHANGE - this as it is refrence for the fontsize updates.
 
   constructor() { }
 
   ngOnInit(): void {
-  }
 
+  }
 
 }

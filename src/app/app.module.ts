@@ -19,7 +19,7 @@ import { JwtInterceptor, ErrorInterceptor, fakeBackendProvider } from './core/au
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
 
-    // provider used to create fake backend
+    // fake backend
     fakeBackendProvider
   ],
   bootstrap: [AppComponent]

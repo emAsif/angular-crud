@@ -6,8 +6,8 @@ import { NewUser } from 'src/app/models/newUser';
 
 const users: Array<{ id: number; username: string; password: string; }> = [{ id: 1, username: 'akelius', password: 'akelius' }];
 const viewUser: NewUser[] = [
-    { firstName: 'Asif', lastName: 'Amin', username: 'asifamin', birthday: '07/13/2020', address: 'koblenz' },
-    { firstName: 'testUser', lastName: 'test', username: 'test123', birthday: '1/07/2019' }
+    { firstName: 'jhon', lastName: 'doe', username: 'jhondoe', birthday: '07/13/2020', address: 'koblenz' },
+    { firstName: 'Alex', lastName: 'litwinov', username: 'alex123', birthday: '1/07/2019', address: 'Neuwid' }
 ]
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -27,8 +27,6 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return authenticate();
                 case url.endsWith('/users') && method === 'GET':
                     return getUsers();
-                case url.endsWith('/create') && method === 'POST':
-                    return saveUsers();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
@@ -45,17 +43,13 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                 localId: user.id,
                 username: user.username,
                 idToken: 'fake-jwt-token',
-                expiresIn: '1800', // token expire time in seconds(30 minutes)
+                expiresIn: '900', // token expire time in seconds(15 minutes)
             })
         }
 
         function getUsers() {
             if (!isLoggedIn()) return unauthorized();
             return ok(viewUser);
-        }
-        function saveUsers() {
-            if (!isLoggedIn()) return unauthorized();
-            return ok();
         }
 
         // helper functions
