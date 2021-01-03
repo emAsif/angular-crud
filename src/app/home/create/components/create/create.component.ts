@@ -76,8 +76,8 @@ export class CreateComponent implements OnInit {
   redirect(): void {
     // five seconds timeout
     setTimeout(() => {
-      this._router.navigateByUrl('/home/view');
-    }, 5000);
+      this._router.navigateByUrl('/home/users');
+    }, 4000);
   }
 
   // submit form 
