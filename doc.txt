@@ -1,0 +1,39 @@
+# AkeliusCodeChallange
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1. This application covers basic features Routing, Navigation and styling of an angular app. This application is scalable. 
+
+A login screen with fake login functionality. 
+
+Provide a token-based authentication functionality with fake tokens.Used guards and interceptors
+
+List page.
+All the pages are accessable upon successuly logging in.
+
+URL: home/start displays the landing page of the application. 
+
+URL: home/users displays currently registered users.
+
+A new user can be created by navigating to the create section from side menu.
+
+URL: home/user/:id Used a reactive form to create a new user.   
+The fields are first and last name, a username, address, a date picker for the date of birth and a submit button also a reset button. 
+
+Front end validation: 
+restrict all strings to max 20. Also username cannot have space.
+The submit feature fakes an HTTP request and a loading indicator and displays a success message to the user and redirects to view page. 
+And the new user will be shown in the list page
+
+STYLING
+Flex layout has been used. Implemented a basic application theme with some colors, typography options for titles, paragraphs, and labels and add styling for HTML atomic components (inputs, buttons). "variables" file in the styles section manages app theme colors.  whole application feature a responsive layout that is usable on tablets and mobile phones as well.
+
+NAVIGATION
+
+The navigation bar features a hamburger icon that toggles a sidebar. The sidebar has links to both child pages and a "sign out" link that logs the user out and redirects to the login page.
+
+## Development server
+
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
+
+## Build
+
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
