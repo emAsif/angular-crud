@@ -10,9 +10,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1. This application covers basic features Routing, Navigation and styling of an angular app. This application is scalable. 
 
-A login screen with fake login functionality. 
+A login screen with fake login functionality. user will be automatically logout after fifteen minutes.
 
-Provide a token-based authentication functionality with fake tokens.Used guards and interceptors
+Provided a token-based authentication functionality with fake tokens.Used guards and interceptors
 
 List page.
 All the pages are accessable upon successuly logging in.
@@ -24,10 +24,11 @@ URL: home/users displays currently registered users by fetching data from a fake
 URL: home/user/:id at this path A new user can be created by navigating to the create section from side menu.
 this also fakes an http request and saves the user data in view section.
 
-Used a reactive form to create a new user.   
-The fields are first and last name, a username, address, a date picker for the date of birth and a submit button also a reset button. 
+Used a reactive form to create a new user. The fields are first and last name, a username, address, a date picker for the date of birth and a submit button also a reset button. 
+User can see three types of messages based on the form state.
 
-Front end validation: 
+Front end field validation: 
+
 restricted all strings to max 20. Also username cannot have space.
 The submit feature fakes an HTTP request and a loading indicator and displays a success message to the user and redirects to view page. 
 And the new user will be shown in the view section.
