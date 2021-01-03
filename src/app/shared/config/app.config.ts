@@ -31,7 +31,7 @@ export const Config = {
     createBirthday: 'Birthday',
     createAdress: 'Address',
     creatInfoMsg: 'Please fill all the required fields to create a new user.',
-    createSuccessMsg: 'Successfully created new user. You will be redirect to view user page in few seconds',
+    createSuccessMsg: 'Save success. You will be redirect to view user page in few seconds',
     creatCusErr: 'Please check you internet connection.',
     sideNavHome: 'Home',
     sideNavView: 'View',
