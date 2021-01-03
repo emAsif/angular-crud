@@ -28,8 +28,7 @@
 /* form specific formatting */
 
 .form-group {
-  display: flex;
-  flex-direction: row;
+  .flex(@flex: row);
   margin: 16px;
 
 }
@@ -39,7 +38,7 @@
   flex-direction: column;
 }
 
-
+// inline labels styling
 .form-group label.right-inline {
   text-align: right;
   padding-right: 8px;
