@@ -7,10 +7,10 @@
         <a routerLink="/home/start" routerLinkActive='active-item'>{{config.sideNavHome}}</a>
       </li>
       <li>
-        <a routerLink="/home/view" routerLinkActive='active-item'>{{config.sideNavView}}</a>
+        <a routerLink="/home/users" routerLinkActive='active-item'>{{config.sideNavView}}</a>
       </li>
       <li>
-        <a [routerLink]="['/home/create', currentUser.id]"
+        <a [routerLink]="['/home/user', currentUser.id]"
           routerLinkActive='active-item'>{{config.sideNavCreate}}</a>
       </li>
       <br>

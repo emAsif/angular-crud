@@ -14,13 +14,13 @@ const routes: Routes = [{
         .then(m => m.StartModule)
       },
       { 
-        path: 'view', 
+        path: 'users', 
         canActivate: [auth.AuthGuard],
         loadChildren: () => import('./view/view.module')
         .then(m => m.ViewModule) 
       },
       { 
-        path: 'create/:id', 
+        path: 'user/:id', 
         canActivate: [auth.AuthGuard],
         loadChildren: () => import('./create/create.module')
         .then(m => m.CreateModule) 
