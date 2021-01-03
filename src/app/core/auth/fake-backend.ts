@@ -3,8 +3,10 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
+import { NewUser } from 'src/app/models/newUser.class';
+
 const users: Array<{ id: number; username: string; password: string; }> = [{ id: 1, username: 'akelius', password: 'akelius' }];
-const viewUser = [
+const viewUser: NewUser[] = [
     { id: 1, firstName: 'jhon', lastName: 'doe', username: 'jhondoe', birthday: '01/01/2020', address: 'koblenz' },
     { id: 2, firstName: 'Alex', lastName: 'litwinov', username: 'alex123', birthday: '07/13/2020', address: 'Neuwid' }
 ]

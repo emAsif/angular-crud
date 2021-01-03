@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import { UserService } from 'src/app/services/user.service';
-import { NewUser } from 'src/app/models/newUser';
-import { Config } from '../../../../shared/config/app.config';
 import { ViewService } from './view.service';
+
+import { NewUser } from 'src/app/models/newUser.class';
+import { Config } from '../../../../shared/config/app.config';
 
 @Component({
   selector: 'app-view',
@@ -24,7 +26,7 @@ export class ViewComponent implements OnInit {
     
     this.viewService.getAll().subscribe(data => {
       this.currentUsers = data;
-      
+
       // adding new user from service to current users array emitted from the fake api.
       if (!!this.users.newUser) {
         this.currentUsers.unshift(this.users.newUser); // unshift data to current user array.

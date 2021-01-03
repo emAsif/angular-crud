@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { Config } from '../../../../shared/config/app.config';
+
 import { UsernameValidators } from 'src/app/shared/validators/username.validators';
+import { Config } from '../../../../shared/config/app.config';
+import { NewUser } from 'src/app/models/newUser.class';
 import { CreateService } from './create.service';
-import { NewUser } from 'src/app/models/newUser';
 import { UserService } from 'src/app/services/user.service';
-import { User } from 'src/app/core/auth/user.model';
+
+interface msg {
+  status: string;
+  message: string;
+}
 
 @Component({
   selector: 'app-create',
@@ -21,7 +26,7 @@ export class CreateComponent implements OnInit {
   loading: boolean = false;
 
   // displaying messages based on current status- by default info message will be loaded.
-  msg: { status: string; message: string } = { status: 'info', message: this.config.creatInfoMsg };
+  msg: msg = { status: 'info', message: this.config.creatInfoMsg };
 
   constructor(
     private readonly _router: Router,
@@ -83,10 +88,9 @@ export class CreateComponent implements OnInit {
     }
 
     this.loading = true; // start spinner
-    this.createService.create(data).subscribe(r => { // not using fake api response to avoid unexpected error
-      // saving new user obj to the service
-      this.userService.newUser = new NewUser(r.id, r.firstName, r.lastName, r.username, r.birthday, r.address);
-      console.log(this.userService.newUser);
+    this.createService.create(data).subscribe(data => { // not using fake api response to avoid unexpected error
+      
+      this.userService.newUser = data; // saving new user to the service
 
       this.redirect(); // navigate to view page
       this.rf.reset(); // reseting form fields
