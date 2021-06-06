@@ -6,7 +6,6 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-# AkeliusCodeChallange
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1. This application covers basic features Routing, Navigation and styling of an angular app. This application is scalable. 
 
